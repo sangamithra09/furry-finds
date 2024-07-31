@@ -1,0 +1,113 @@
+/* Signup.css */
+
+body {
+    background-color: #ffffff;
+  }
+ .password{
+  color:#000
+ }
+
+  .signup-container {
+    display: flex;
+    height: 100vh;
+    background-color: #F8D082; /* Set background color to black */
+    color: white; /* Change text color to white for better visibility */
+  }
+  .username{
+    margin-left: 30px;
+  }
+  
+  .image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8D082;
+  }
+  
+  .side-image {
+    max-width: 120%;
+    height: auto;
+    margin-top: 70px;
+  }
+  
+  .form-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(155, 155, 155); /* Fully filled black background on the right side */
+    background-size: cover;
+    background: fixed;
+    
+  }
+  
+  .container {
+    background-color: #F8D082; /* Semi-transparent background for the form container */
+    padding: 50px;
+    width:50%;
+    border-radius: 10px;
+    border-color: #ffffff;
+
+  }
+  
+  .header {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .input {
+    margin-bottom: 15px;
+  }
+  
+  .input img {
+    margin-right: 10px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+  #text{
+    color: black;
+  }
+  .submitcontainer1 {
+    margin-top: 20px;
+  }
+  
+  .submit1 {
+    width: 50%;
+    padding: 10px;
+    background-color: hsl(16, 100%, 66%); /* Semi-transparent button background */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submitcontainer2 {
+    margin-top: -70px;
+    text-align: center;
+  }
+  .forgot-password{
+    color: #000;
+  }
+  
+  .forgot-password span {
+    color: rgba(76, 175, 80, 0.8); /* Semi-transparent link color */
+  }
+  
+  .forgot-password span a {
+    color: rgba(76, 175, 80, 0.8); /* Semi-transparent link color */
+    text-decoration: none;
+  }
+  
+  .forgot-password span a:hover {
+    text-decoration: underline;
+  }
+  

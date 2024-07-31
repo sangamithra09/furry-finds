@@ -1,0 +1,66 @@
+/* src/pages/ShopPage.css */
+.shop-page {
+    text-align: center;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom,
+    rgb(0,0,0,0.5),transparent
+  ),  url("https://img.freepik.com/premium-photo/abstract-background-bird-chickens-feather-texture_49683-3389.jpg?w=900")center/cover no-repeat fixed;
+  }
+  .shop-page h1,button,h3,p{
+    font-family: 'Open Sans';
+  }
+  .category-buttons {
+    margin-bottom: 20px;
+  }
+  
+  .category-buttons button {
+    border-radius: 5px;
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .product-card {
+    border: 1px solid #7b7474;
+    border-radius: 10px;
+    padding: 30px;
+    height: 420px;
+    text-align: center;
+    width: 210px;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: aliceblue;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-color: #7b7474;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-card h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .product-card p {
+    margin: 5px 0;
+  }
+  

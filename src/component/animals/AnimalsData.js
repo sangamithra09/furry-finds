@@ -1,0 +1,22 @@
+const buyingAnimals = [
+    { id: 1,  breed: 'Labrador', age: '2 months', price: '₹5,000', imageUrl: 'https://img.freepik.com/free-photo/shallow-focus-shot-cute-golden-retriever-puppy-resting-floor_181624-21204.jpg?t=st=1722189362~exp=1722192962~hmac=ac1bc76065ca03ec417e31843e9e28776e52a14aea37b86959951fa1e91688df&w=826' },
+    { id: 2,  breed: 'Abyssinian', age: '1 month', price: '₹1,000', imageUrl: 'https://img.freepik.com/free-photo/cute-cat-spending-time-outdoors_23-2150649144.jpg?t=st=1722189610~exp=1722193210~hmac=4f549337849e7c4cd0f336bff557557ff618fb047e7981e413e3316e89e15fca&w=900' },
+    { id: 3,  breed: 'Cockatoo', age: 1, price: '₹2,000', imageUrl: 'https://img.freepik.com/free-photo/closeup-shot-sulphur-crested-cockatoo-perched-branch-yellow-background_181624-36192.jpg?t=st=1722189713~exp=1722193313~hmac=9188a95cbf1a5a8d0eb68264a7c7b7ff6feba9de44217f0aa51bdc77b9aa5cbd&w=740' },
+    { id: 4,  breed: 'Persian Cat', age: 1, price: '₹3,000', imageUrl: 'https://img.freepik.com/free-photo/close-up-beautiful-pet-cat_23-2150285612.jpg?t=st=1722189819~exp=1722193419~hmac=2d550469f362522514d515cb57a4d2cd5f7dbd5f544210f84780bd66a6c927ae&w=900' },
+    { id: 5,  breed: 'German Shepherd', age: '3 months', price: '₹4,000', imageUrl: '   https://img.freepik.com/free-photo/german-shepherd-lying-grass_8353-6401.jpg?t=st=1722189453~exp=1722193053~hmac=f3e3c3afc9f0f0b807a53b6caa6540b247cf7a2ddd71c6bc44980c0e6f9d46e3&w=900'},
+    { id: 6,  breed: 'German Shepherd', age: '3 months', price: '₹4,000', imageUrl: '   https://img.freepik.com/free-photo/german-shepherd-lying-grass_8353-6401.jpg?t=st=1722189453~exp=1722193053~hmac=f3e3c3afc9f0f0b807a53b6caa6540b247cf7a2ddd71c6bc44980c0e6f9d46e3&w=900'},
+    { id: 7,  breed: 'German Shepherd', age: '3 months', price: '₹4,000', imageUrl: '   https://img.freepik.com/free-photo/german-shepherd-lying-grass_8353-6401.jpg?t=st=1722189453~exp=1722193053~hmac=f3e3c3afc9f0f0b807a53b6caa6540b247cf7a2ddd71c6bc44980c0e6f9d46e3&w=900'}
+  ];
+  const adoptingAnimals = [
+    { id: 1, name: 'Shadow', breed: 'Labrador', age: 3, trained: 'Yes', description: 'Looking for a kind home', imageUrl: 'https://img.freepik.com/free-photo/black-labrador-retriever-standing-green-forest_23-2148045690.jpg?t=st=1722191380~exp=1722194980~hmac=0380c4d873ef2c313e60909fdb43224fef2712a381488417feb921e33422ceb5&w=740' },
+    { id: 2, name: 'Whiskers', breed: 'Persian', age: 2, trained: 'No', description: 'Needs a loving family', imageUrl: 'https://www.vetstreet.com/wp-content/uploads/2022/09/view-pet-portrait-cat-mammal-close-843475-pxhere.com-1.jpg' },
+    { id: 3, name: 'Milo',  age: 3, trained: 'Yes', description: 'Searching for a kind home', imageUrl: 'https://img.freepik.com/free-photo/dog-sitting-stairs-with-adoption-banner_23-2148699704.jpg?t=st=1722191575~exp=1722195175~hmac=5994105ec52a62965c2a0374e2b19f688d1698324e4491f4650afb107306bf59&w=1060' },
+    { id: 4, name: 'Milo',  age: 3, trained: 'Yes', description: 'Searching for a kind home', imageUrl: 'https://img.freepik.com/free-photo/dog-sitting-stairs-with-adoption-banner_23-2148699704.jpg?t=st=1722191575~exp=1722195175~hmac=5994105ec52a62965c2a0374e2b19f688d1698324e4491f4650afb107306bf59&w=1060' },
+    { id: 5, name: 'Milo',  age: 3, trained: 'Yes', description: 'Searching for a kind home', imageUrl: 'https://img.freepik.com/free-photo/dog-sitting-stairs-with-adoption-banner_23-2148699704.jpg?t=st=1722191575~exp=1722195175~hmac=5994105ec52a62965c2a0374e2b19f688d1698324e4491f4650afb107306bf59&w=1060' },
+    { id: 6, name: 'Milo',  age: 3, trained: 'Yes', description: 'Searching for a kind home', imageUrl: 'https://img.freepik.com/free-photo/dog-sitting-stairs-with-adoption-banner_23-2148699704.jpg?t=st=1722191575~exp=1722195175~hmac=5994105ec52a62965c2a0374e2b19f688d1698324e4491f4650afb107306bf59&w=1060' },
+    { id: 7, name: 'Milo',  age: 3, trained: 'Yes', description: 'Searching for a kind home', imageUrl: 'https://img.freepik.com/free-photo/dog-sitting-stairs-with-adoption-banner_23-2148699704.jpg?t=st=1722191575~exp=1722195175~hmac=5994105ec52a62965c2a0374e2b19f688d1698324e4491f4650afb107306bf59&w=1060' },
+    { id: 8, name: 'Milo',  age: 3, trained: 'Yes', description: 'Searching for a kind home', imageUrl: 'https://img.freepik.com/free-photo/dog-sitting-stairs-with-adoption-banner_23-2148699704.jpg?t=st=1722191575~exp=1722195175~hmac=5994105ec52a62965c2a0374e2b19f688d1698324e4491f4650afb107306bf59&w=1060' }
+  ];
+  
+  export { buyingAnimals, adoptingAnimals };
+  

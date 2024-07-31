@@ -1,0 +1,23 @@
+/* src/components/AnimalCardAdopting.css */
+.animal-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    max-width: 200px;
+    text-align: left;
+  }
+  
+  .animal-card img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .animal-card h3 {
+    margin-top: 0;
+  }
+  
+  .animal-card p {
+    margin: 4px 0;
+  }
+  
