@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import '../signup/Signup.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import mail from '../../Assets/mail.png';
 import passwordd from '../../Assets/passwordd.png';
 import person from '../../Assets/person.png';
-import beagle from '../../Assets/Group 10 (1).png'; 
+import { handleSignup } from './Axios/SignupHandler';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const Navigate = useNavigate()
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,15 +18,17 @@ const Signup = () => {
     console.log('Username:', username);
     console.log('Email:', email);
     console.log('Password:', password);
+    if(handleSignup(username , email , password)) {
+      //handle loged in state
+      Navigate('/')
+    }
   };
 
   return (
     <div className="signup-container">
                     {/* <div className='brand'>FLURRY FINDS!</div> */}
 
-      <div className="image-section">
-        <img src={beagle} alt="Decorative" className="side-image" />
-      </div>
+      
       <div className="form-section">
         <div className="container">
           <div className="header" id="header">

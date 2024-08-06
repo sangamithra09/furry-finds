@@ -11,7 +11,7 @@ html, body {
     justify-content: space-between;
     align-items: center;
     padding: 35px 35px;
-    background-color: #ffffff;
+    background-color:transparent;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -154,12 +154,12 @@ html, body {
   
 #header1{
   background: linear-gradient(to bottom,
-  rgba(0, 0, 0, 0.5),transparent
-), url("C:/Users/UNNI/Documents/PetSales/furry-finds/src/Assets/bg3.png") no-repeat fixed center/cover;
-  background-position: calc(50% + 20px) calc(50% + 20px);
+  rgba(0.4, 0.2, 0.2, 0.3),transparent
+  ), url("C:/Users/UNNI/Documents/PetSales/furry-finds/src/Assets/bg3.png") no-repeat fixed center/cover;
+  background-position: calc(50% + 60px) calc(50% + 20px);
   justify-content: flex-start;
   align-items: flex-end;
-  height: 70vh;
+  height: auto;
   margin-top: -20px;
 }
 #header1 .homecontainer{
@@ -202,6 +202,8 @@ background-size: cover;
   height: 60dvh;
   align-items: center;
   justify-content: center;
+  margin-left: 155px;
+  margin-top:60px;
 }
 
 .card-content {
@@ -210,31 +212,37 @@ background-size: cover;
   left: 20px;
   max-width: 60%; /* Adjust based on the desired content width */
   color: white;
-  background: rgba(0, 0, 0, 0.5); /* Optional: for better text readability */
   padding: 20px;
   border-radius: 10px;
 }
 
 .card-content p {
   margin: 0 0 10px 0;
+  font-size:4rem;
+  font-family: 'Josefin Sans';
 }
 
 .card-button {
-  padding: 10px 20px;
+  padding: 4px 12px;
   border: none;
-  background-color: #007BFF;
+  background-color: #ff8800;
   color: white;
-  border-radius: 5px;
+  border-radius: 65px;
   cursor: pointer;
+  margin-top: 40px;
+  margin-left: 20px;
+  font-family: "Josefin Sans";
+  
 }
 
 .card-button:hover {
-  background-color: #0056b3;
+  background-color: #b3b300;
 }
 
 .gallery {
     text-align: center;
     margin: 20px 0;
+    background: none;
   }
   .gallery h2{
     font-family: 'Josefin Sans';
@@ -244,6 +252,7 @@ background-size: cover;
     justify-content: center;
     flex-wrap: wrap;
     gap: 35px;
+    background:white  ;
   }
   
   .gallery-item {

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../login/Login.css';
 import person from '../../Assets/person.png';
-import beagle from '../../Assets/Group 10 (1).png';
 import passwordd from '../../Assets/passwordd.png';
 import { Link } from 'react-router-dom';
 
@@ -17,12 +16,13 @@ const Login = () => {
     };
 
     return (
+        <div className='loginpage'>
         <div className="login-container">
             
             {/* <div className='brand'>FURRY FINDS!</div> */}
-                <img src={beagle} alt='decorative' className="sidee-image" />
+                
 
-            <div className="formm-section">
+            <div className="form-section">
                 <div className="container">
                     <div className="header" id="header">
                         <div className="text" id="text">Login</div>
@@ -62,6 +62,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

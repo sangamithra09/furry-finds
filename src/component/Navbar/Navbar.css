@@ -5,18 +5,21 @@ html, body {
     height: 100%;
     overflow-x: hidden; /* Prevent horizontal scrolling */
   }
-
+  
   .NavBar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 50px;
     padding: 28px 30px;
-    background-color: #000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(206, 10, 10, 0.1);
+    background: linear-gradient(to top,
+  rgba(0.3, 0, 0.4, 0.3),transparent
+  ), url("C:/Users/UNNI/Documents/PetSales/furry-finds/src/Assets/bg3.png");
   }
   .logo {
     display: flex;
+    width: 64px;
     align-items: center;
     margin-bottom: 10px;
 }
@@ -24,9 +27,10 @@ html, body {
 .logo h3 {
     font-family: 'Teko';
     font-size: 25px;
-    color: hsl(0, 0%, 100%);
+    width: 25px;
+    color: hsl(0, 0%, 2%);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin: 0;
 }
@@ -42,13 +46,13 @@ html, body {
     /* flex-grow: 1; */
     display: flex;
     align-items: center;
-    padding: 0 50px;
+    /* padding: 0 50px; */
   }
   
   .search-bar input {
     width: 80%;
     max-width: 400px;
-    padding: 12px 40px 12px 20px; /* Adjust padding to vertically center text and add left padding */
+    padding: 12px 0px 12px 0pxpx; /* Adjust padding to vertically center text and add left padding */
     font-size: 16px;
     border: 1px solid #000000;
     border-radius: 8px;
@@ -69,11 +73,11 @@ html, body {
   left: -45px;/* Adjust this value to position the icon inside the input */
   bottom: -18px;
   transform: translateY(-50%);
-  color: #000;
-  background-color: #ffffff;
+  color: #000000;
+  background:transparent;
   padding: 9px;
   border-radius: 12%; /* Make the background circular */
-  border: 1px solid #ffffff; /* Optional: Add a border to match the input field */
+  border: transparent; /* Optional: Add a border to match the input field */
   font-size: 17px; /* Adjust the size of the icon */
   display: flex;
   align-items: center;
@@ -106,7 +110,7 @@ html, body {
   .nav-links1 ul li a {
     text-decoration: none;
     font-family: 'Josefin Sans';
-    color: #ffffff;
+    color: #151515;
     font-size: 22px;
     font-weight: 800;
     padding: 1px 10px;
@@ -138,7 +142,7 @@ html, body {
   .nav-links2 ul li a {
     text-decoration: none;
     font-family: 'Josefin Sans';
-    color: #ffffff;
+    color: #161616;
     font-size: 22px;
     font-weight: 800;
     padding: 5px 10px;
@@ -150,5 +154,22 @@ html, body {
     background-color: #4d4d4d;
     color: #fff;
   }
-  
+  .cart-icon{
+    color: #000000;
+    font-size: 1.3rem; /* Adjust the size */
+    margin-right: 8px; /* Space between icon and count */
+    vertical-align: middle;
+  }
+   .cart-count{
+    font-weight: bold; /* Make the number bold */
+    color: rgb(247, 247, 247); /* Change the color to red */
+    margin-left: -12px; /* Space between the icon and count */
+    margin-top: -22px;
+    font-size: 1rem; /* Adjust font size */
+    background-color: rgb(240, 0, 0); /* Optional: Add background color */
+    border-radius: 45%; /* Optional: Round the count */
+    padding: 1px 6px; 
+
+
+  } 
   

@@ -1,0 +1,12 @@
+.wishlist-page {
+    padding: 20px;
+  }
+  
+  .wishlist-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  /* You can add more specific styles for the Wishlist page here */
+  

@@ -1,146 +1,114 @@
-body{
-    background-color:#F8D082;
-    
-
+.input img {
+  width: 20px;
+  margin-right: 10px;
 }
 
-.brand {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-family: 'Teko', cursive; /* Example font, adjust as needed */
-    font-size: 2rem;
-    color: #000000; /* Adjust color as needed */
+/* Resetting margin and padding for the body */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
 }
+
+/* Container for the entire page */
 .login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: aliceblue;
+   
+}
 
-    display: flex;
-    height: 100vh;
-    background-color:#F8D082;
-  }
-  
-  .image-section {
-    flex: 1;
-    display: flex;
-    background-color: #F8D082;
-  }
-  
-  .sidee-image {
-    max-width: 40%;
-    height: auto;
-    
-  }
-  
-  .formm-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: inherit; 
-    margin-left: 310px;
+/* Container for the form */
+.form-section {
+  background: white; /* White background for the form */
+  padding: 2rem; /* Padding inside the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for a subtle 3D effect */
+  width: 100%;
+  max-width: 400px; /* Max width for larger screens */
+}
 
-  }
-  .username{
-    margin-left: 30px;
-    margin-bottom: 10px;
-  }
-  .password{
-    margin-left: 30px;
-    margin-bottom: 10px;
-  }
-  
-  .container {
-    width: 100%;
-    height: 50%;
-    max-width: 400px;
-    padding: 28px;
-    border: 1px solid #F8D082;
-    border-radius: 15px;
-    background-color: #F8D082;
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #F8D082;
-  }
-  
-  .text {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .underline {
-    width: 50px;
-    height: 2px;
-    background-color: #000;
-    margin: 0 auto;
-    margin-top: 5px;
-  }
-  
-  .inputs {
-    margin-bottom: 90px;
-  }
-  
-  .input {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  .input input{
-    border: 1px solid black;
-  }
-  .input img {
-    width: 20px;
-    margin-right: 10px;
-  }
-  
-  .input input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-  }
-  
-  .submitcontainer1 {
-    text-align: center;
-    margin-bottom:  1px;
-    margin-top: 200px;
-  }
-  
-  .submit1 {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    margin-top: 20px;
-  }
-  
-  .submit1:hover {
-    background-color: #45a049;
-  }
-  
-  .submitcontainer2 {
-    text-align: center;
-  }
-  
-  .forgot-password {
-    font-size: 20px;
-  }
-  
-  .forgot-password span {
-    color: #4CAF50;
-  }
-  
-  .forgot-password span a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
+/* Header styling */
+.header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
-  form {
-    background-color: #F8D082;
-  }
+.text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff; /* Darker text color */
+}
+
+.underline {
+  width: 60px;
+  height: 3px;
+  background: #333;
+  margin: 0.5rem auto;
+}
+
+/* Form label styling */
+.username, .password {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #555; /* Slightly lighter text color */
+}
+
+/* Styling for input fields */
+.inputs .input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  border: 1px solid #ffffff; /* Light border around input fields */
+  border-radius: 4px; /* Rounded corners for inputs */
+  padding: 0.5rem;
+}
+
+.inputs .input img {
+  margin-right: 0.5rem;
+}
+
+.inputs .input input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+/* Submit button styling */
+.submitcontainer1 {
+  text-align: center;
+}
+
+.submit1 {
+  background-color: #007bff; /* Primary button color */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.submit1:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+/* Link styling for sign up */
+.forgot-password {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.forgot-password a {
+  color: #007bff; /* Link color */
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline; /* Underline on hover */
+}

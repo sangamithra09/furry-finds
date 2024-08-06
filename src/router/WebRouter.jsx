@@ -4,25 +4,32 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from '../component/home/Home';
 import Login from '../component/login/Login';
 import Signup from '../component/signup/Signup';
-import AnimalsPage from '../component/animals/AnimalsPage';
 import Navbar from '../component/Navbar/Navbar';
-import ShopPage from '../component/essentials/ShopPage';
-import CartPage from '../component/essentials/CartPage';
 import Footer from '../component/Footer/Footer';
+import Cart from '../component/Shopping/Cart/Cart';
+import WishlistPage from '../component/Shopping/Wishlist/WishlistPage';
+import ShoppingPage from '../component/Shopping/ShoppingPage';
+import PetPage from '../component/pets/PetPage';
 
 const WebRouter = () => {
   return (
     <BrowserRouter>
+    <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="*" element={<>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/animals" element={<AnimalsPage />} />
-        <Route path="/shop" element={<ShopPage />} />
-        <Route path="/cartpage" element={<CartPage />} />
+        <Route path="/petpage" element={<PetPage />} />
+        <Route path="/shop" element={<ShoppingPage />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlistpage" element={<WishlistPage/>}/>
       </Routes>
       <Footer/>
+      </>}
+      />
+      </Routes>
     </BrowserRouter>
   );
 };

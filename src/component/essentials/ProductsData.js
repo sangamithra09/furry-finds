@@ -1,6 +1,7 @@
 // src/data/products.js
+import dog1 from '../../Assets/dog.jpg';
 const products = [
-  { id: 1, category: 'Dog', type: 'Food', name: 'Pedigree Chicken and Vegetables Dog Dry Food', price: '₹3,310', description: 'Nutritious dog food.', imageUrl: 'https://cdn.shopify.com/s/files/1/0565/8021/0861/files/3_4_92f49d09-c691-4338-8142-a406309eee1e.jpg?v=1713775569' },
+  { id: 1, category: 'Dog', type: 'Food', name: 'Pedigree Chicken and Vegetables Dog Dry Food', price: '₹3,310', description: 'Nutritious dog food.', imageUrl: dog1 },
   { id: 2, category: 'Dog', type: 'Pharmacy', name: 'Henlo Everyday Topper For Cooked Food', price: '₹1,399', description: 'Effective dog medicine.', imageUrl: 'https://cdn.shopify.com/s/files/1/0565/8021/0861/files/Frame12677_2.jpg?v=1696847878' },
   { id: 3, category: 'Dog', type: 'Grooming', name: 'Wahl Four In One Chamomile Shampoo', price: '₹382', description: 'Gentle dog shampoo.', imageUrl: 'https://cdn.shopify.com/s/files/1/0565/8021/0861/files/GroomingShampoo_1_ba738813-5e82-445f-9e5d-124f7c224777.png?v=1696635067' },
   { id: 4, category: 'Cat', type: 'Food', name: 'Whiskas Ocean Fish Flavour Cat Dry Food', price: '₹3,399', description: 'Nutritious cat food.', imageUrl: 'https://cdn.shopify.com/s/files/1/0565/8021/0861/products/Group106.png?v=1700817567' },

@@ -2,11 +2,11 @@
 .animals-page {
     text-align: center;
     padding: 30px;
-    background: linear-gradient(to bottom,
+    /* background: linear-gradient(to bottom,
     rgb(0,0,0,0.5),transparent
   ),  url("https://img.freepik.com/premium-photo/abstract-background-bird-chickens-feather-texture_49683-3389.jpg?w=900")center/cover no-repeat fixed;
-  
-   
+   */
+    
 }
 
 .animals-page h1 {
