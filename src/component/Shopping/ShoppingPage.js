@@ -26,7 +26,7 @@ const ShoppingPage = () => {
       <div className='bannercard'>
         <div className='bannercard-content'>
         <p></p>
-        <button className='bannerbutton'><h2>Shop Now</h2></button>
+        <button className='shopbannerbutton'><h2>Shop Now</h2></button>
         </div>
       </div>
       {message && <div className="message">{message}</div>}

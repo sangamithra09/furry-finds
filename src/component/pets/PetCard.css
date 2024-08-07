@@ -1,24 +1,8 @@
-.cart {
-    padding: 1rem;
-  }
-  
-  .cart-items {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .cart-message {
-    color: green;
-    margin-bottom: 1rem;
-  }
-  
   .pet-card {
     position: relative;
     border: 1px solid #ccc;
-    padding: 2rem;
-    width: calc(25% - 1rem);
+    padding: 1rem;
+    width: 21dvw;
     box-sizing: border-box;
     border: 1px solid #ddd;
   border-radius: 5px;
@@ -26,32 +10,28 @@
   overflow: hidden;
   }
   
-  .cartbutton {
-    background-color: #817e7ee7;
-    color: white;
-    border: none;
+  .contact-info {
+    background-color: #f0f0f0e7;
+    color: rgb(246, 10, 10);
+    border-style: double;
     padding: 0.5rem 1rem;
     cursor: pointer;
   }
-  
-  .cartbutton:hover {
+  .contactbutton{
+    width:100%;
+    display: flex;
+    justify-content: center;
+  }
+  .contact-info:hover {
     background-color: #8ba4bf;
   }
-  .card-header {
+  /* .petcard-header {
     position: absolute;
     top: 10px;
     left: 10px;
-  }
-  
- 
-  
-  
-  .pet-card {
-  position: relative;
-  
-}
+  } */
 
-.card-header {
+.petcard-header {
   position: absolute;
   top: 0;
   left: 0;
@@ -67,7 +47,8 @@
   transition: color 0.3s;
   padding: 0%;
   width: 2rem;
-  margin-left: 220px;
+  margin-left: 280px;
+  margin-top: 4px;
 }
 
 .petwishlist-button.active {
@@ -75,14 +56,13 @@
 }
 .pet-card img {
   width: 100%;
-  height: 240px;
+  height: 250px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
   display: block; /* Ensures no extra space below the image */
-  border: 1px solid #7b7474; /* Consistent border color */
+  border: 1px solid #7b7474; 
 }
-
 
 h3 {
   margin: 10px 0;
@@ -92,16 +72,3 @@ p {
   margin: 5px 0;
 }
 
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3;
-}

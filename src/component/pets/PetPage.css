@@ -1,0 +1,85 @@
+.petshopping-page {
+    display: flex;
+  }
+  
+  .petsidebar {
+    width: 18%;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-right: 1px solid #838181;
+  }
+  
+  .products-container {
+    width: 80%;
+    padding: 1rem;
+  }
+  
+  
+  .message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 20px;
+  }
+  .petbannercard {
+    position: relative;
+    background: url('C:\Users\UNNI\Documents\PetSales\furry-finds\src\Assets\banner.png');
+  background-size: cover;
+    background-position: center;
+
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    width:70dvw;
+    height: 60dvh;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+    padding-top: 15px;
+    
+  }
+  
+  .petbannercard-content {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    max-width: 60%; /* Adjust based on the desired content width */
+    color: white;
+    /* background: rgba(0, 0, 0, 0.5); Optional: for better text readability */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .petbannercard-content p {
+    margin: 0 0 10px 0;
+    font-size:4rem;
+    font-family: 'Roboto';
+  }
+  
+  .petbannerbutton {
+    padding:0px;
+  border-width: 2px;
+  border-style:double;
+  border-color: rgb(50, 50, 59);
+  background-color: transparent;
+  color: rgb(67, 49, 49);
+  border-radius: 3px;
+  cursor: pointer;
+    margin-top: 230px;
+    margin-left: 20px;
+    
+  }
+  
+  .petbannerbutton:hover {
+    background-color: #b5b5b5;
+  }

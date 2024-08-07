@@ -33,7 +33,7 @@
 }
 .bannercard {
   position: relative;
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  background:url('C:\Users\UNNI\Documents\PetSales\furry-finds\src\Assets\HeaderTitle (1).png');
 background-size: cover;
   background-position: center;
   border-radius: 30px;
@@ -64,18 +64,20 @@ background-size: cover;
   font-family: 'Roboto';
 }
 
-.bannerbutton {
-  padding: 5px 15px;
-  border: none;
-  background-color: #000000;
-  color: white;
-  border-radius: 65px;
+.shopbannerbutton {
+  padding:0px;
+  border-width: 2px;
+  border-style:double;
+  border-color: rgb(50, 50, 59);
+  background-color: transparent;
+  color: rgb(67, 49, 49);
+  border-radius: 3px;
   cursor: pointer;
-  margin-top: 27px;
-  margin-left: 20px;
+  margin-top: 238px;
+  margin-left: 480px;
   
 }
 
-.bannerbutton:hover {
-  background-color: #b3b300;
+.shopbannerbutton:hover {
+  background-color: #b5b5b5;
 }

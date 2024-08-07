@@ -1,8 +1,8 @@
 package com.example.backend.Controller;
-
 import com.example.backend.Model.User;
 import com.example.backend.Service.UserServ;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,9 +17,9 @@ public class UserCont {
     public User post(@RequestBody User u){
         return s.postData(u);
     }
-    @GetMapping("/login")
-    public List<User> get(){
-        return s.get();
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody User u){
+        return s.login(u);
     }
     @DeleteMapping("/delAccount/{id}")
     public String deleteId(@PathVariable long id)

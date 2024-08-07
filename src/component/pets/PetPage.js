@@ -1,3 +1,4 @@
+// PetPage.js
 import React, { useState } from 'react';
 import PetFilter from './PetFilter';
 import PetCard from './PetCard';
@@ -18,24 +19,27 @@ const PetPage = () => {
     );
   });
 
+  // No need to export, just use this within PetPage
+  // const featuredProducts = filteredProducts.slice(0, 3);
+
   return (
-    <div className="shopping-page">
-      <div className="sidebar">
+    <div className="petshopping-page">
+      <div className="petsidebar">
         <PetFilter setFilters={setFilters} />
       </div>
       <div className="products-container">
-        <div className='bannercard'>
-          <div className='bannercard-content'>
+        <div className='petbannercard'>
+          <div className='petbannercard-content'>
             <p></p>
-            <button className='bannerbutton'><h2>Shop Now</h2></button>
+            <button className='petbannerbutton'><h2>Find Now</h2></button>
           </div>
         </div>
         {message && <div className="message">{message}</div>}
         <div className="products">
-          {(filteredProducts.length > 0 ? filteredProducts : products).map((product) => (
-            <PetCard key={product.id} product={product} />
-          ))}
-        </div>
+        {(filteredProducts.length > 0 ? filteredProducts : products).map((product) => (
+          <PetCard key={product.id} product={product} />
+        ))}
+      </div>
       </div>
     </div>
   );

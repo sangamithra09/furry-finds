@@ -6,9 +6,10 @@ const PetFilter = ({ setFilters }) => {
   const [selectedBreeds, setSelectedBreeds] = useState({});
   
   const breeds = {
-    Dog: ['Labrador', 'Golden Retriever', 'Shih Tzu', 'German Shepherd'],
-    Cat: ['Siamese', 'Persian', 'Maine Coon', 'Bengal'],
-    Birds: ['Parrot', 'Canary', 'Sparrow', 'Finch']
+    Dog: ['Labrador', 'Beagle', 'Shih Tzu', 'German Shepherd'],
+    Cat: ['Persian','Rusty-Spotted'],
+    Birds: ['Cockatiels', 'LoveBirds', 'Parakeets'],
+    SmallPets:['Rabbit','Hamster']
   };
 
   const handlePetClick = (petType) => {

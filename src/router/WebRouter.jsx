@@ -10,6 +10,7 @@ import Cart from '../component/Shopping/Cart/Cart';
 import WishlistPage from '../component/Shopping/Wishlist/WishlistPage';
 import ShoppingPage from '../component/Shopping/ShoppingPage';
 import PetPage from '../component/pets/PetPage';
+import ProductDetail from '../component/Shopping/ProductDetailPage';
 
 const WebRouter = () => {
   return (
@@ -25,6 +26,7 @@ const WebRouter = () => {
         <Route path="/shop" element={<ShoppingPage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlistpage" element={<WishlistPage/>}/>
+        <Route path="/product/:productId" element={<ProductDetail/>}></Route>
       </Routes>
       <Footer/>
       </>}

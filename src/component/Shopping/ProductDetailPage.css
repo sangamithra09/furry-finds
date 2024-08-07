@@ -1,0 +1,52 @@
+.product-detail-page {
+  display: flex;
+  padding: 20px;
+}
+
+.product-image img {
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.product-details {
+  margin-left: 20px;
+}
+
+.description {
+  margin: 20px 0;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.star {
+  font-size: 24px;
+  color: #ccc;
+}
+
+.star.filled {
+  color: #f39c12;
+}
+
+.reviews {
+  margin-top: 20px;
+}
+
+.review {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.review p {
+  margin: 5px 0;
+}

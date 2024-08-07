@@ -1,11 +1,12 @@
-.petfilter-options {
+/* .petfilter-options {
     padding: 10px;
     background-color: #f5f5f5;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+
   }
   
   .petfilter-group h3 {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
   }
   
   .petfilter-categories {
@@ -39,7 +40,7 @@
     margin-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #d7caca;
     text-align: center;
     transition: background-color 0.3s ease;
   }
@@ -47,4 +48,73 @@
   .breed-option.selected {
     background-color: #e0e0e0;
   }
-  
+   */
+   .petfilter-options {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.petfilter-group h3 {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #272323;
+    font-family: 'Barlow Condensed';
+}
+
+.petfilter-categories {
+    display: flex;
+    flex-direction: column;
+}
+
+.petfilter-category {
+    cursor: pointer;
+    padding: 12px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 1em;
+    color: #555;
+}
+
+.petfilter-category:hover {
+    background-color: #e8e8e8;
+}
+
+.petfilter-category.active {
+    background-color: #e0e0e0;
+    border-color: #bbb;
+}
+
+.breed-options {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.breed-option {
+    cursor: pointer;
+    padding: 12px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 1em;
+    color: #555;
+}
+
+.breed-option:hover {
+    background-color: #e8e8e8;
+}
+
+.breed-option.selected {
+    background-color: #e0e0e0;
+    border-color: #bbb;
+}

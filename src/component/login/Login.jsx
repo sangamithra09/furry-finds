@@ -2,41 +2,53 @@ import React, { useState } from 'react';
 import '../login/Login.css';
 import person from '../../Assets/person.png';
 import passwordd from '../../Assets/passwordd.png';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import { loginHandler } from './Axios/LoginHandler';
+import dog from '../../Assets/dog.jpg'
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+  const Navigate = useNavigate()
 
-    const handleSubmit = (event) => {
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
+
         // Handle login logic here
-        console.log('Username:', username);
+        console.log('Email:', email);
         console.log('Password:', password);
+        if(await loginHandler(email , password) === true) {
+            console.log("object")
+            //handle loged in state
+            Navigate('/')
+          }
     };
 
     return (
         <div className='loginpage'>
         <div className="login-container">
             
-            {/* <div className='brand'>FURRY FINDS!</div> */}
-                
-
+          
             <div className="form-section">
-                <div className="container">
+                <div className='image-container'>
+                <img src={dog} alt="login" />
+                </div>
+                <div className="form-content">
                     <div className="header" id="header">
-                        <div className="text" id="text">Login</div>
+                        <div className="text" id="text" style={{color:"black"}}>Login</div>
                         <div className="underline" id="underline"></div>
                     </div>
-                    <div className='username'>Email Address</div>
                     <form onSubmit={handleSubmit} className="inputs" id="inputs">
+                    <div className='signform'>
+                    <div className='username'>Email Address</div>
                         <div className="input">
                             <img src={person} alt="User icon" />
                             <input
                                 type="text"
                                 placeholder="Enter Your Email Address"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
                         </div>
@@ -51,13 +63,14 @@ const Login = () => {
                                 required
                             />
                         </div>
+                    </div>
                         <div className="submitcontainer1" id="submit-container1">
                             <button type="submit" className="submit1" id="submit1">Login</button>
                         </div>
                     </form>
                     <div className="submitcontainer2" id="submit-container2">
                         <div className="forgot-password">
-                            Don't have an account? <span><Link to="/Signup">Sign Up!</Link></span>
+                            Don't have an account? <span>Sign Up!</span>
                         </div>
                     </div>
                 </div>
