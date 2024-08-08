@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useWishlist } from '../Shopping/Wishlist/WishlistContext';
-import PetDetailModal from './PetDetailModal'; // Import the modal
+import PetDetailModal from './PetDetailModal'; 
 import './PetCard.css';
 
 const PetCard = ({ product }) => {
@@ -9,7 +9,6 @@ const PetCard = ({ product }) => {
   const isInWishlist = wishlist.some(item => item.id === product.id);
   const price = Number(product.price);
 
-  // Format price with two decimal places if it's a valid number
   const formattedPrice = !isNaN(price) ? price.toFixed(2) : 'Invalid price';
 
   const toggleWishlist = () => {
@@ -40,7 +39,7 @@ const PetCard = ({ product }) => {
       </div>
       <img src={product.image} alt={product.name} />
       <p>Age: {product.age}</p>
-      <p>{product.description}</p>
+      {/* <p>{product.description}</p> */}
       <p>₹{formattedPrice}</p>
       <div className='contactbutton'>
         <button className='contact-info' onClick={openModal}>

@@ -1,11 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import { useCart } from './Cart/CartContext';
 import { useWishlist } from './Wishlist/WishlistContext';
 import './ShoppingCard.css';
 
 const ShoppingCard = ({ product, showAddToCartButton = true }) => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
   const { addToCart } = useCart();
   const { addToWishlist, removeFromWishlist, wishlist } = useWishlist();
   const isInWishlist = wishlist.some(item => item.id === product.id);
@@ -19,7 +19,7 @@ const ShoppingCard = ({ product, showAddToCartButton = true }) => {
   };
 
   const handleCardClick = () => {
-    navigate(`/product/${product.id}`); // Navigate to product detail page
+    navigate(`/product/${product.id}`); 
   };
 
   return (
@@ -28,7 +28,7 @@ const ShoppingCard = ({ product, showAddToCartButton = true }) => {
         <button
           className={`wishlist-button ${isInWishlist ? 'active' : ''}`}
           onClick={(e) => {
-            e.stopPropagation(); // Prevent click event from bubbling up to the card
+            e.stopPropagation(); 
             toggleWishlist();
           }}
         >

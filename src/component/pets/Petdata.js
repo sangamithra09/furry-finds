@@ -23,11 +23,10 @@ const pets = [
     breed: 'Labrador' ,
     gender:'Female',
     color:'Yellow',
-    description:'Friendly And energetic',
+    description:'Loyal and energetic, Labradors are known for their friendly nature and intelligence, making them great family pets and excellent working dogs.',
     location:'Coimbatore',
     ownerName:'Adith',
-    ownerContact:9897765439// Added breed
-    // category: 'Food'   // Added category
+    ownerContact:9897765439
   },
   {
     id: 2,
@@ -35,8 +34,13 @@ const pets = [
     age: '3 months',
     price: 3000,
     pet: 'Cat',
-    breed: 'Persian' // Added breed
-    // category: 'Food'  // Added category
+    breed: 'Persian',
+    gender:'Female',
+    color:'Honey Brown',
+    description:' With their luxurious fur and calm demeanor, Persian cats are affectionate companions who enjoy a relaxed, indoor lifestyle.',
+    location:'Pollachi',
+    ownerName:'Priya',
+    ownerContact:9097665439
   },
   {
     id: 3,
@@ -44,7 +48,13 @@ const pets = [
     age: '1 Year',
     price: 5000,
     pet: 'Birds',
-    breed: 'Cockatiels' // Added category
+    breed: 'Cockatiels',
+    gender:'Male',
+    color:'White and Yellow ',
+    description:' Intelligent and affectionate, Cockatoos are known for their expressive personalities and strong vocal abilities, making them engaging and loving pets for dedicated owners.',
+    location:'Coimbatore',
+    ownerName:'Arun',
+    ownerContact:9097665487 
   },
   {
     id: 4,
@@ -52,7 +62,13 @@ const pets = [
     age: '3 months',
     price: 8000,
     pet: 'Dog',
-    breed: 'German Shepherd'
+    breed: 'German Shepherd',
+    gender:'Male',
+    color:'Black and Golden ',
+    description:'Renowned for their versatility and loyalty, German Shepherds are intelligent, protective, and highly trainable, suited for various roles including family pets and service dogs.',
+    location:'Coimbatore',
+    ownerName:'Akshay',
+    ownerContact:9097665487 
   },
   {
     id: 5,
@@ -60,7 +76,13 @@ const pets = [
     age: '3 months',
     price: 6000,
     pet: 'Dog',
-    breed: 'Beagle'
+    breed: 'Beagle',
+    gender:'Male',
+    color:'Black,Brown and White',
+    description:'Friendly and curious, Beagles are energetic dogs with a strong sense of smell, making them great companions for families and outdoor enthusiasts alike. Their playful nature and affectionate demeanor make them ideal pets for active households.',
+    location:'Coimbatore',
+    ownerName:'Akshay',
+    ownerContact:9097665487 
   },
   
   {
@@ -69,7 +91,13 @@ const pets = [
     age: '--',
     price: 8000,
     pet: 'SmallPets',
-    breed: 'Hamster'
+    breed: 'Hamster',
+    gender:'Male',
+    color:'White and Yellow ',
+    description:'Small and low-maintenance, hamsters are perfect for those looking for a cute, interactive pet. Their playful antics and simple care needs make them an ideal choice for beginners or those with limited space.',
+    location:'Coimbatore',
+    ownerName:'Akshay',
+    ownerContact:9097665487 
   },
   {
     id: 7,
@@ -77,7 +105,13 @@ const pets = [
     age: '4 months',
     price: 3000,
     pet: 'Cat',
-    breed: 'Persian'
+    breed: 'Persian',
+    gender:'Female',
+    color:'Grey ',
+    description:'With their luxurious fur and calm demeanor, Persian cats are affectionate companions who enjoy a relaxed, indoor lifestyle.',
+    location:'Coimbatore',
+    ownerName:'Akshay',
+    ownerContact:9097665487 
   },
   {
     id: 8,

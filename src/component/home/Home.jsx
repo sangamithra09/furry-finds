@@ -2,15 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../home/Home.css';
 import buy from '../../Assets/buy.jpg';
-import adopt from '../../Assets/adopt.jpg';
+import products from '../../Assets/products.jpg';
 import about from '../../Assets/aboutus.png'
-import PetCard from '../pets/PetCard'; // Import PetCard component
-import Petdata from '../pets/Petdata'; // Import Petdata
+
 
 export default function Home() {
-  // Get the first three products from Petdata
-  // const featuredProducts = Petdata.slice(0, 3);
-
   return (
     <div>
       <header id="header1" className="homeheader">
@@ -27,11 +23,11 @@ export default function Home() {
         <div className="gallery-container">
           <div className="gallery-item">
             <Link to="/animals"><img src={buy} alt="Buy" /></Link>
-            <div className="caption">Buy</div>
+            <div className="caption">Pets</div>
           </div>
           <div className="gallery-item">
-            <Link to="/animals"><img src={adopt} alt="Adopt" /></Link>
-            <div className="caption">Adopt</div>
+            <Link to="/shop"><img src={products} alt="Adopt" /></Link>
+            <div className="caption">Products</div>
           </div>
         </div>
       </section>
@@ -44,7 +40,7 @@ export default function Home() {
         </div>
       </div>
       <div className='about'>
-        <img src={about}></img>
+        <img src={about} alt='about'></img>
       </div>
       {/* <section className="featured-pets">
         <h2>Featured Pets</h2>

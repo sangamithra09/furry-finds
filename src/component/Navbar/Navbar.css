@@ -156,18 +156,18 @@ justify-content: center;
 }
   .cart-icon{
     color: #000000;
-    font-size: 1.3rem; /* Adjust the size */
-    margin-right: 8px; /* Space between icon and count */
+    font-size: 1.3rem; 
+    margin-right: 8px; 
     vertical-align: middle;
   }
    .cart-count{
-    font-weight: bold; /* Make the number bold */
-    color: rgb(247, 247, 247); /* Change the color to red */
-    margin-left: -12px; /* Space between the icon and count */
+    font-weight: bold;
+    color: rgb(247, 247, 247); 
+    margin-left: -12px; 
     margin-top: -22px;
-    font-size: 1rem; /* Adjust font size */
-    background-color: rgb(240, 0, 0); /* Optional: Add background color */
-    border-radius: 45%; /* Optional: Round the count */
+    font-size: 1rem; 
+    background-color: rgb(240, 0, 0); 
+    border-radius: 45%; 
     padding: 1px 6px; 
 
 

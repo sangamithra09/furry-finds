@@ -60,7 +60,7 @@
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
-  display: block; /* Ensures no extra space below the image */
+  display: block; 
   border: 1px solid #7b7474; 
 }
 

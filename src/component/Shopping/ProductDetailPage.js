@@ -1,51 +1,78 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import productsReviewData from './ProductsReviewData'; // Assuming you have this file
+import { useCart } from './Cart/CartContext';
 import './ProductDetailPage.css';
+import dogf1 from '../../Assets/dogf1.webp'
+import cat1 from '../../Assets/cat1.webp'
+
+const mockProduct = {
+  id: 1,
+  name: 'Pedigree Chicken and Vegetables Dog Dry Food',
+  image: dogf1,
+  description: 'Nutritious dog food.',
+  rating: 4.5,
+  price: 3310,
+  reviews: [
+    { username: 'User1', rating: 5, comment: 'Great product!' },
+    { username: 'User2', rating: 4, comment: 'Very good, but could be better.' }
+  ]
+};
 
 const ProductDetailPage = () => {
-  const { productId } = useParams();
-  console.log(productsReviewData);
-  const product = productsReviewData.find(p => p.id === parseInt(productId));
+  const { id } = useParams(); 
+  const [product, setProduct] = useState(null);
+  const { addToCart } = useCart();
+
+  useEffect(() => {
+    setProduct(mockProduct);
+  }, []);
+
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product);
+    }
+  };
+
+  const handleBuyNow = () => {
+    if (product) {
+      addToCart(product);
+    }
+  };
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <p>Loading...</p>;
   }
 
   return (
-    <div className="product-detail-page">
+    <div className="product-detail">
       <div className="product-image">
         <img src={product.image} alt={product.name} />
       </div>
-      <div className="product-details">
+      <div className="product-info">
         <h1>{product.name}</h1>
-        <p className="description">{product.description}</p>
-        <p className="price">₹{product.price.toFixed(2)}</p>
-        <div className="rating">
-          {/* Assuming you have a function to display stars */}
-          {renderStars(product.rating)}
-          <span>({product.reviews.length} reviews)</span>
+        <p className="product-description">{product.description}</p>
+        <div className="product-rating">
+          <span>Rating: {product.rating} ★</span>
         </div>
-        <div className="reviews">
-          {product.reviews.map((review, index) => (
-            <div key={index} className="review">
-              <p><strong>{review.user}</strong></p>
-              <p>{review.comment}</p>
-              <p><em>{review.date}</em></p>
-            </div>
-          ))}
+        <p className="product-price">₹{product.price.toFixed(2)}</p>
+        <button className="btn add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
+        <button className="btn buy-now" onClick={handleBuyNow}>Buy Now</button>
+        <div className="customer-reviews">
+          <h2>Customer Reviews</h2>
+          {product.reviews && product.reviews.length > 0 ? (
+            product.reviews.map((review, index) => (
+              <div key={index} className="review">
+                <p><strong>{review.username}</strong> - {review.rating} ★</p>
+                <p>{review.comment}</p>
+              </div>
+            ))
+          ) : (
+            <p>No reviews yet</p>
+          )}
         </div>
       </div>
     </div>
   );
-};
-
-// Helper function to render star ratings
-const renderStars = (rating) => {
-  const stars = Array(5).fill(false).map((_, index) => index < rating);
-  return stars.map((filled, index) => (
-    <span key={index} className={filled ? 'star filled' : 'star'}>★</span>
-  ));
 };
 
 export default ProductDetailPage;

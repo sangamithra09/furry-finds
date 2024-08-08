@@ -5,7 +5,7 @@ import mail from '../../Assets/mail.png';
 import passwordd from '../../Assets/passwordd.png';
 import person from '../../Assets/person.png';
 import { handleSignup } from './Axios/SignupHandler';
-import dog from '../../Assets/dog.jpg'
+import log from '../../Assets/log.jpg'
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -29,15 +29,14 @@ const Signup = () => {
     <div className="signup-container">
       <div className="form-section">
         <div className="image-container">
-          <img src={dog} alt="Signup" />
+          <img src={log} alt="Signup" />
         </div>
         <div className="form-content">
-          {/* <div className="container"> */}
-          <div className="header" id="header">Sign Up</div>
-          <div className="underline" id="underline"></div>
-            <form onSubmit={handleSubmit} className="inputs" id="inputs">
-              <div className='signform'>
-              <div class='password'>UserName</div>
+          <div className="header">Sign Up</div>
+          <div className="underline"></div>
+          <form onSubmit={handleSubmit} className="inputs">
+            <div className="input-group">
+              <label className="input-label">Username</label>
               <div className="input">
                 <img src={person} alt="User icon" />
                 <input
@@ -48,7 +47,9 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div className='password'>Email Address</div>
+            </div>
+            <div className="input-group">
+              <label className="input-label">Email Address</label>
               <div className="input">
                 <img src={mail} alt="Email icon" />
                 <input
@@ -59,7 +60,9 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div className='password'>Password</div>
+            </div>
+            <div className="input-group">
+              <label className="input-label">Password</label>
               <div className="input">
                 <img src={passwordd} alt="Password icon" />
                 <input
@@ -70,20 +73,18 @@ const Signup = () => {
                   required
                 />
               </div>
-              </div>
-              <div className="submitcontainer1" id="submit-container1">
-                <button type="submit" className="submit1" id="submit1">Sign Up</button>
-              </div>
-            </form>
-            <div className="submitcontainer2" id="submit-container2">
-              <div className="forgot-password">
-                Already have an account? <span><Link to="/Login">Login!</Link></span>
-              </div>
             </div>
+            <div className="submit-container">
+              <button type="submit" className="submit">Sign Up</button>
+            </div>
+          </form>
+          <div className="login-redirect">
+            Already have an account? <Link to="/Login">Login!</Link>
           </div>
         </div>
       </div>
-      );
+    </div>
+  );
 };
 
       export default Signup;

@@ -1,37 +1,52 @@
-import React from 'react';
-import './Footer.css';
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React from "react"
+import "./Footer.css"
+import { Link } from "react-router-dom"
 
-function Footer() {
-    return (
-        <div>
-            <footer id = "footer" class = "py-7" >
-            <div class = "footer-content" id="footer-content">
-                <div>
-                    <h3>FURRY FINDS</h3>
-                </div>
+const Footer = () => {
+  return (
+    <>
 
-                <div>
-                    <ul class = "flex">
-                    
-                        <li><Link to>About Us</Link></li>
-                        <li><Link to>Contact</Link></li>
-                        <li><Link to>Social</Link></li>
-                        
-                    </ul>
-                    <div className="social-icons">
-    <FaFacebook />
-    <FaTwitter />
-    <FaInstagram />
-    {/* Add more React Icons as needed */}
-  </div>
-</div>
-              </div>
-        
-    </footer>
+      <footer>
+        <div className='container padding'>
+          <div className='box-logo'>
+            <h1>FURRY FINDS</h1>
+            <p>"Explore our diverse selection of pets available for purchase—find your new furry friend and give them a loving home today!</p>
+             <div className="icons">
+            <i className='fab fa-facebook-f icon'></i>
+            <i className='fab fa-twitter icon'></i>
+            <i className='fab fa-instagram icon'></i>
+            </div>
+          </div>
+          <div className='box link'>
+            <h3>Explore</h3>
+            <ul>
+              <li>About Us</li>
+              <li><Link to='/petpage'>Pets</Link></li>
+              <li><Link to='/shop'>Products</Link></li>
+            </ul>
+          </div>
+          <div className='box last'>
+            <h3>Have Questions?</h3>
+            <ul>
+              <li>
+                <i className='fa fa-phone-alt'></i>
+                +91 9897875640
+              </li>
+              <li>
+                <i className='fa fa-paper-plane'></i>
+                furryfinds@gmail.com
+              </li>
+            </ul>
+          </div>
         </div>
-    )
+      </footer>
+      <div className='legal'>
+        <p>
+          Copyright ©2024 All rights reserved
+        </p>
+      </div>
+    </>
+  )
 }
 
 export default Footer

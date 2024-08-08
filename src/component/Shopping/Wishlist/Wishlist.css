@@ -1,5 +1,6 @@
 .wishlist-page {
     padding: 20px;
+    height: 100dvh;
   }
   
   .wishlist-items {
@@ -8,5 +9,4 @@
     gap: 20px;
   }
   
-  /* You can add more specific styles for the Wishlist page here */
   

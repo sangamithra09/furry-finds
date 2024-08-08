@@ -1,23 +1,65 @@
-// Cart.js
 import React from 'react';
 import { useCart } from './CartContext';
-import ShoppingCard from '../ShoppingCard';
+import CartItem from './CartItem'; 
+import './Cart.css'
 
 const Cart = () => {
-  const { cartItems, totalAmount, message } = useCart();
+  const { cart = [], totalAmount = 0, notification = {} } = useCart();
+
+  const calculateTotalAmount = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
 
   return (
     <div className="cart">
       <h2>Shopping Cart</h2>
-      {message && <p className="cart-message">{message}</p>}
+      {notification.show && <p className="cart-message">{notification.message}</p>}
       <div className="cart-items">
-        {cartItems.map((item, index) => (
-          <ShoppingCard key={index} product={item} showAddToCartButton={false} />
-        ))}
+        {cart.length === 0 ? (
+          <p>Your cart is empty</p>
+        ) : (
+          cart.map((item) => (
+            <CartItem key={item.id} item={item} />
+          ))
+        )}
       </div>
-      <h3>Total: ${totalAmount.toFixed(2)}</h3>
+      <h3>Total: ₹{calculateTotalAmount().toFixed(2)}</h3>
     </div>
   );
 };
 
 export default Cart;
+
+
+// import React from 'react';
+// import { useCart } from './CartContext';
+// import CartItem from './CartItem'; // Adjust the import if needed
+// import './Cart.css';
+
+// const Cart = () => {
+//   const { cart = [], notification = {} } = useCart();
+
+//   // Calculate total amount
+//   const calculateTotalAmount = () => {
+//     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+//   };
+
+//   return (
+//     <div className="cart">
+//       <h2>Shopping Cart</h2>
+//       {notification.show && <p className="cart-message">{notification.message}</p>}
+//       <div className="cart-items">
+//         {cart.length === 0 ? (
+//           <p>Your cart is empty</p>
+//         ) : (
+//           cart.map((item) => (
+//             <CartItem key={item.id} item={item} />
+//           ))
+//         )}
+//       </div>
+//       <h3>Total: ${calculateTotalAmount().toFixed(2)}</h3>
+//     </div>
+//   );
+// };
+
+// export default Cart;

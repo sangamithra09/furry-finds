@@ -5,13 +5,13 @@ const productsReviewData = [
     image: 'path/to/image.jpg',
     description: 'Product description here',
     price: 499.99,
-    rating: 4, // Star rating out of 5
+    rating: 4, 
     reviews: [
       { user: 'John Doe', comment: 'Great product!', date: '2024-08-01' },
       { user: 'Jane Smith', comment: 'Very satisfied with the quality.', date: '2024-08-02' }
     ],
   },
-  // Add more products here
+
 ];
 
 export default productsReviewData;

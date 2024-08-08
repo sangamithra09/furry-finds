@@ -1,8 +1,7 @@
 import React from 'react';
 import { useWishlist } from './WishlistContext';
-import ShoppingCard from '../ShoppingCard'; // Import the ShoppingCard component
-import './Wishlist.css'; // Optionally, add specific styles for Wishlist page
-
+import ShoppingCard from '../ShoppingCard'; 
+import './Wishlist.css'; 
 const WishlistPage = () => {
   const { wishlist } = useWishlist();
 
@@ -15,7 +14,7 @@ const WishlistPage = () => {
             <ShoppingCard
               key={product.id}
               product={product}
-              showAddToCartButton={true} // Adjust this as needed
+              showAddToCartButton={true} 
             />
           ))
         ) : (

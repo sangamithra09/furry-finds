@@ -3,7 +3,6 @@
   margin-right: 10px;
 }
 
-/* Resetting margin and padding for the body */
 body {
   margin: 0;
   padding: 0;
@@ -11,29 +10,28 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Container for the entire page */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
 }
 .login-container img{
   size: 10px;
 }
-/* Container for the form */
 .form-section {
-  background: white; /* White background for the form */
-  padding: 2rem; /* Padding inside the form */
-  border-radius: 8px; /* Rounded corners */
+  background: white; 
+  padding: 2rem; 
+  border-radius: 8px; 
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); Shadow for a subtle 3D effect */
   width: 100%;
-  max-width: 400px; /* Max width for larger screens */
+  max-width: 400px; 
   border-color: aliceblue;
 }
 
-/* Header styling */
 .header {
   text-align: center;
   margin-bottom: 1rem;
@@ -42,7 +40,7 @@ body {
 .text {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ffffff; /* Darker text color */
+  color: #ffffff; 
 }
 
 .underline {
@@ -52,20 +50,19 @@ body {
   margin: 0.5rem auto;
 }
 
-/* Form label styling */
+
 .username, .password {
   margin-top: 1rem;
   font-weight: bold;
-  color: #555; /* Slightly lighter text color */
+  color: #1a1919; 
 }
 
-/* Styling for input fields */
 .inputs .input {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  border: 1px solid #ffffff; /* Light border around input fields */
-  border-radius: 4px; /* Rounded corners for inputs */
+  border: 1px solid #ffffff; 
+  border-radius: 4px; 
   padding: 0.5rem;
 }
 
@@ -80,13 +77,12 @@ body {
   padding: 0.5rem;
 }
 
-/* Submit button styling */
 .submitcontainer1 {
   text-align: center;
 }
 
 .submit1 {
-  background-color: #007bff; /* Primary button color */
+  background-color:#5e7292;
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -97,20 +93,19 @@ body {
 }
 
 .submit1:hover {
-  background-color: #0056b3; /* Darker shade for hover effect */
+  background-color: #0056b3; 
 }
 
-/* Link styling for sign up */
 .forgot-password {
   text-align: center;
   margin-top: 1rem;
 }
 
 .forgot-password a {
-  color: #007bff; /* Link color */
+  color: #007bff; 
   text-decoration: none;
 }
 
 .forgot-password a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline; 
 }
