@@ -5,6 +5,7 @@ import './ProductDetailPage.css';
 import dogf1 from '../../Assets/dogf1.webp'
 import cat1 from '../../Assets/cat1.webp'
 
+
 const fetchProductById = (id) => {
   const products = {
     1: {
@@ -47,8 +48,14 @@ const ProductDetailPage = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
+      try{
       const productData = await fetchProductById(id);
       setProduct(productData);
+      }
+      catch (error) {
+        // Handle error
+        console.error('Error fetching product data:', error);
+      }
     };
     fetchProduct();
   }, [id]);
