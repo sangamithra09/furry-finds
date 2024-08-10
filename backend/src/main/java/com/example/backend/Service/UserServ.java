@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class UserServ {
     @Autowired
@@ -23,7 +21,11 @@ public class UserServ {
             return new ResponseEntity<>("User not found", HttpStatus.UNAUTHORIZED);
         }
         if (u.getPassword().equals(exist.getPassword())) {
-            return new ResponseEntity<>(exist, HttpStatus.OK);
+            String data[] = new String[2];
+            data[0]=Long.toString(exist.getId());
+            data[1]=exist.getName();
+
+            return new ResponseEntity<>(data, HttpStatus.OK);
         }
         return new ResponseEntity<>("Email or Password is Invalid" ,HttpStatus.UNAUTHORIZED);
     }

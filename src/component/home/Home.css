@@ -363,4 +363,11 @@ margin-bottom: 14px;
 footer-content > div:first-child{
   margin-bottom: 4rem;
 }
-
+.homecontainer {
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+  @media (max-width: 400px) {
+    text-align: left;
+  }
+}

@@ -9,7 +9,6 @@ import dogshi1 from '../../Assets/dogshi1.jpg'
 import rabbit1 from '../../Assets/rabbit1.jpg'
 import doglab2 from '../../Assets/doglab2.jpg'
 import birdl1 from '../../Assets/birdl1.jpg'
-import { Description } from '@mui/icons-material';
 
 
 

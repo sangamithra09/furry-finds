@@ -6,9 +6,14 @@ export const loginHandler = async (email , password) => {
             "email": email,
             "password": password
         })
-    
+        const userid = response.data[0];
+        const username=response.data[1];
+        console.log("userid ",userid);
+        console.log("username",username);
+
         if(response.status === 200) {
-            localStorage.setItem('user' , JSON.stringify(response.data))
+            localStorage.setItem('userid' , userid);
+            localStorage.setItem('username' , username);
             console.log("True")
             return true 
         }
@@ -23,3 +28,28 @@ export const loginHandler = async (email , password) => {
         return false
     }
 }
+// export const loginHandler = async (email, password) => {
+//     try {
+//         const response = await axios.post("http://localhost:8080/login", {
+//             email,
+//             password
+//         });
+
+//         if (response.status === 200) {
+//             const { userId, token, ...userData } = response.data;
+
+//             localStorage.setItem('userId', userId);
+//             localStorage.setItem('authToken', token);
+
+//             console.log("Login successful");
+//             return true;
+//         } 
+//         else {
+//             console.log("Login failed");
+//             return false;
+//         }
+//     } catch (error) {
+//         console.error("Error during login", error);
+//         return false;
+//     }
+// };

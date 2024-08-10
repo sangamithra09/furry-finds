@@ -7,8 +7,9 @@ import { IoMdHeart } from "react-icons/io";
 import { useCart } from '../Shopping/Cart/CartContext';
 
 function Navbar() {
-    const { cart } = useCart();
+    const user = localStorage.getItem('username') ?? "User";
 
+    const { cart } = useCart();
     return (
         <div className="NavBar">
             <div className="logo">
@@ -35,6 +36,8 @@ function Navbar() {
                         <li><Link to='/wishlistpage'><IoMdHeart /></Link></li>
                     </ul>
                 </div>
+                <div style={{fontSize: "24px", padding: "0px 20px", fontWeight: "bolder"}}>{user}</div>
+                <div></div>
                 <Link to='/cart'>
                     <span className='cart-icon'>
                         <FaShoppingCart />

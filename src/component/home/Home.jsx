@@ -5,7 +5,6 @@ import buy from '../../Assets/buy.jpg';
 import products from '../../Assets/products.jpg';
 import about from '../../Assets/aboutus.png'
 
-
 export default function Home() {
   return (
     <div>
@@ -22,7 +21,7 @@ export default function Home() {
         <h2>What Are You Interested In?</h2>
         <div className="gallery-container">
           <div className="gallery-item">
-            <Link to="/animals"><img src={buy} alt="Buy" /></Link>
+            <Link to="/pets"><img src={buy} alt="Buy" /></Link>
             <div className="caption">Pets</div>
           </div>
           <div className="gallery-item">

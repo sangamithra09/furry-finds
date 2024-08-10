@@ -5,27 +5,53 @@ import './ProductDetailPage.css';
 import dogf1 from '../../Assets/dogf1.webp'
 import cat1 from '../../Assets/cat1.webp'
 
-const mockProduct = {
-  id: 1,
-  name: 'Pedigree Chicken and Vegetables Dog Dry Food',
-  image: dogf1,
-  description: 'Nutritious dog food.',
-  rating: 4.5,
-  price: 3310,
-  reviews: [
-    { username: 'User1', rating: 5, comment: 'Great product!' },
-    { username: 'User2', rating: 4, comment: 'Very good, but could be better.' }
-  ]
+const fetchProductById = (id) => {
+  const products = {
+    1: {
+      id: 1,
+      name: 'Pedigree Chicken and Vegetables Dog Dry Food',
+      image: dogf1,
+      description: 'Nutritious dog food.',
+      rating: 4.5,
+      price: 3310,
+      reviews: [
+        // { username: 'User1', rating: 5, comment: 'Great product!' },
+        // { username: 'User2', rating: 4, comment: 'Very good, but could be better.' }
+      ]
+    },
+    2: {
+      id: 1,
+      name: 'Pedigree Chicken and Vegetables Dog Dry Food',
+      image: cat1,
+      description: 'Nutritious dog food.',
+      rating: 4.5,
+      price: 3310,
+      reviews: [
+        // { username: 'User1', rating: 5, comment: 'Great product!' },
+        // { username: 'User2', rating: 4, comment: 'Very good, but could be better.' }
+      ]
+    }
+  };
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products[id]);
+    }, 500);
+  });
 };
 
+
 const ProductDetailPage = () => {
-  const { id } = useParams(); 
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { addToCart } = useCart();
 
   useEffect(() => {
-    setProduct(mockProduct);
-  }, []);
+    const fetchProduct = async () => {
+      const productData = await fetchProductById(id);
+      setProduct(productData);
+    };
+    fetchProduct();
+  }, [id]);
 
   const handleAddToCart = () => {
     if (product) {

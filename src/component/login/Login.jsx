@@ -22,7 +22,8 @@ const Login = () => {
             const loginSuccess = await loginHandler(email, password);
             if (loginSuccess) {
                 Navigate('/');
-            } else {
+            } 
+            else {
                 setError('Your email or password is invalid.');
             }
         } catch (err) {

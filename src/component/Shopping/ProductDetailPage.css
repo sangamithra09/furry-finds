@@ -44,7 +44,6 @@
   color: #fff;
   font-size: 1em;
   cursor: pointer;
-
 }
 
 .add-to-cart {
@@ -53,6 +52,7 @@
 
 .buy-now {
   background-color: #28a745;
+  margin-left: 20px;
 }
 
 .customer-reviews {
