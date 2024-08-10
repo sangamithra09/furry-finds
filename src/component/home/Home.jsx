@@ -13,7 +13,6 @@ export default function Home() {
           <div className="header-content">
             <div className="para">
               "Discover your new best friend and all their must-have essentials—where finding pets and perfecting their care is just a click away!"
-              "Discover your new best friend and all their must-have essentials—where finding pets and perfecting their care is just a click away!"
             </div>
           </div>
         </div>
