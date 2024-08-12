@@ -58,7 +58,7 @@ export const CartProvider = ({ children }) => {
     try {
       const item = cart.find((item) => item.id === productId);
       if (item) {
-        await axios.put(`http://localhost:8080/api/cartitems/${productId}`, { quantity: item.quantity + 1 });
+        await axios.put(`http://localhost:8080/api/cartitems/${productId}/increment`, { quantity: item.quantity + 1 });
         setCart((prevCart) =>
           prevCart.map((item) =>
             item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
@@ -76,7 +76,7 @@ export const CartProvider = ({ children }) => {
     try {
       const item = cart.find((item) => item.id === productId);
       if (item && item.quantity > 1) {
-        await axios.put(`http://localhost:8080/api/cartitems/${productId}`, { quantity: item.quantity - 1 });
+        await axios.put(`http://localhost:8080/api/cartitems/${productId}/decrement`, { quantity: item.quantity - 1 });
         setCart((prevCart) =>
           prevCart.map((item) =>
             item.id === productId ? { ...item, quantity: item.quantity - 1 } : item

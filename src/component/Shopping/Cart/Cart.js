@@ -3,18 +3,16 @@ import { useCart } from './CartContext';
 import {useNavigate} from 'react-router-dom'
 import CartItem from './CartItem'; 
 import './Cart.css';
-import { getCartItems, deleteCartItem, updateCartItemQuantity, addCartItem } from '../../Shopping/Service/CartItemService';
 
 const Cart = () => {
   const { cart = [], totalAmount = 0, notification = {} } = useCart();
   const navigate = useNavigate();
 
-  // Calculate total amount if not already provided
   const calculateTotalAmount = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
   const handleProceedToCheckout = () => {
-    navigate('/checkout');
+    navigate('/checkout', { state: { cart, total: calculateTotalAmount() } });
   };
 
   return (
