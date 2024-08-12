@@ -8,12 +8,30 @@ import lombok.Setter;
 
 @Entity
 public class Product {
+    public String getPet() {
+        return pet;
+    }
+
+    public void setPet(String pet) {
+        this.pet = pet;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
     private Double price;
+    private String pet;
+    private String category;
 
     public Long getId() {
         return id;

@@ -1,35 +1,55 @@
 package com.example.backend.Controller;
 
+
+import com.example.backend.DTO.CartItemDTO;
 import com.example.backend.Model.CartItem;
 import com.example.backend.Service.CartItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+        import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/cart")
+@CrossOrigin
+@RequestMapping("/api/cartitems")
 public class CartItemController {
 
     @Autowired
-    private CartItemService cartService;
+    private CartItemService cartItemService;
 
     @PostMapping("/add")
-    public ResponseEntity<String> addToCart(@RequestBody CartItem cartItem) {
-        boolean success = cartService.addToCart(cartItem);
-        return success ? ResponseEntity.ok("Item added to cart") : ResponseEntity.status(400).body("Failed to add item to cart");
+    public CartItem addToCart(@RequestParam Long userId, @RequestParam Long productId, @RequestParam Integer quantity) {
+        return cartItemService.addToCart(userId, productId, quantity);
     }
 
-    @DeleteMapping("/remove/{productId}")
-    public ResponseEntity<String> removeItem(@PathVariable Long productId) {
-        boolean success = cartService.removeItem(productId);
-        return success ? ResponseEntity.ok("Item removed") : ResponseEntity.status(400).body("Failed to remove item");
+    @GetMapping("/user/{userId}")
+    public List<CartItemDTO> getCartItemsByUser(@PathVariable Long userId) {
+        return cartItemService.getCartItemsByUser(userId);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<CartItem> getCartItemById(@PathVariable Long id) {
+        Optional<CartItem> cartItem = cartItemService.getCartItemById(id);
+        return cartItem.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/items")
-    public ResponseEntity<List<CartItem>> getCartItems() {
-        List<CartItem> cartItems = cartService.getCartItems();
-        return ResponseEntity.ok(cartItems);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCartItem(@PathVariable Long id) {
+        cartItemService.deleteCartItem(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/{id}/increment")
+    public ResponseEntity<Void> incrementQuantity(@PathVariable Long id, @RequestParam int amount) {
+        boolean success = cartItemService.updateCartItemQuantity(id, amount);
+        return success ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
+
+    @PatchMapping("/{id}/decrement")
+    public ResponseEntity<Void> decrementQuantity(@PathVariable Long id, @RequestParam int amount) {
+        boolean success = cartItemService.updateCartItemQuantity(id, -amount);
+        return success ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 }

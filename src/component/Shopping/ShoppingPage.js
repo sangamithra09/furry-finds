@@ -1,15 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import FilterOptions from './FilterOptions';
 import ShoppingCard from './ShoppingCard';
 import productsData from './ProductsData';
 import './ShoppingPage.css'
+import {getProducts} from './Service/ProductService'
 import { useCart } from './Cart/CartContext';
 
 const ShoppingPage = () => {
   const [filters, setFilters] = useState({ pets: [], categories: [] });
-  const products = productsData;
+  const [products,setProducts] =useState([]);
   const { message } = useCart();
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProducts();
+        console.log('Fetched products:', data); 
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
 
+    fetchProducts();
+  }, []);
   const filteredProducts = products.filter((product) => {
     return (
       (filters.pets.length === 0 || filters.pets.includes(product.pet)) &&

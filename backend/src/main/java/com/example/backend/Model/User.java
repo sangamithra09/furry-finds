@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "user")
 @Getter
@@ -16,6 +18,8 @@ public class User {
     private String name;
     private String email;
     private String password;
+
+
     public long getId() {
         return id;
     }

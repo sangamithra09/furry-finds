@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,Link } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCart } from './Cart/CartContext';
 import './ProductDetailPage.css';
@@ -22,11 +22,11 @@ const fetchProductById = (id) => {
     },
     2: {
       id: 1,
-      name: 'Pedigree Chicken and Vegetables Dog Dry Food',
-      image: cat1,
-      description: 'Nutritious dog food.',
+      name: 'HUFT Saras Doggie Treats Fruit & Veggie Trail Mix',
+      image: "https://headsupfortails.com/cdn/shop/products/Fruitsandveggietrailmix_fd3d210e-2369-4984-b6ae-e79ecde59926.jpg?v=1672209134",
+      description: 'Dog Treats',
       rating: 4.5,
-      price: 3310,
+      price: 349,
       reviews: [
         // { username: 'User1', rating: 5, comment: 'Great product!' },
         // { username: 'User2', rating: 4, comment: 'Very good, but could be better.' }

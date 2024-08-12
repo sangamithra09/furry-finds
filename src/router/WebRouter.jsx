@@ -12,7 +12,8 @@ import ShoppingPage from '../component/Shopping/ShoppingPage';
 import PetPage from '../component/pets/PetPage';
 import ProductDetailPage from '../component/Shopping/ProductDetailPage';
 import AdminDashboard from '../component/Admin/AdminDashboard';
-
+import CheckoutPage from '../component/Shopping/CheckoutPage';
+import About from '../About/About';
 const WebRouter = () => {
   return (
     <BrowserRouter>
@@ -29,6 +30,8 @@ const WebRouter = () => {
         <Route path="/wishlistpage" element={<WishlistPage/>}/>
         <Route path="/product/:id" element={<ProductDetailPage/>}></Route>
         <Route path="/admindashboard" element={<AdminDashboard/>}></Route>
+        <Route path="/checkout" element={<CheckoutPage/>}></Route>
+        <Route path="/about" element={<About/>}></Route>
       </Routes>
       <Footer/>
       </>}

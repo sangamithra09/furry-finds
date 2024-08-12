@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 
 export const CartContext = createContext();
 
@@ -7,48 +8,97 @@ export const CartProvider = ({ children }) => {
   const [notification, setNotification] = useState({ show: false, message: '' });
 
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-    setCart(savedCart);
+    fetchCart();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+  const fetchCart = async () => {
+    try {
+      const user=localStorage.getItem("userid");
+      const response = await axios.get(`http://localhost:8080/api/cartitems/${user}`); 
+      setCart(response.data);
+    } catch (error) {
+      console.error('Error fetching cart items:', error);
+    }
+  };
 
-  const addToCart = (product) => {
-    setCart((prevCart) => {
-      const existingProduct = prevCart.find((item) => item.id === product.id);
+  const addToCart = async (product) => {
+    try {
+      const existingProduct = cart.find((item) => item.id === product.id);
       if (existingProduct) {
-        return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        await axios.put(`http://localhost:8080/api/cartitems/${product.id}`, { quantity: existingProduct.quantity + 1 });
+        setCart((prevCart) =>
+          prevCart.map((item) =>
+            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          )
         );
       } else {
-        return [...prevCart, { ...product, quantity: 1 }];
+        
+        // await axios.post('http://localhost:8080/api/cartitems/add?userId=53&productId=13&quantity=1', { ...product, quantity: 1 });
+        // setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
+        const userId = 53; // Replace with dynamic user ID if needed
+      const quantity = 1;
+      await axios.post('http://localhost:8080/api/cartitems/add', null, {
+        params: {
+          userId: userId,
+          productId: product.id,
+          quantity: quantity
+        }
+      });
+      setCart((prevCart) => [...prevCart, { ...product, quantity }]);
+    }
+        
+      showNotification('Item added to cart');
+    } catch (error) {
+      console.error('Error adding item to cart:', error);
+      showNotification('Failed to add item to cart');
+    }
+  };
+
+  const incrementQuantity = async (productId) => {
+    try {
+      const item = cart.find((item) => item.id === productId);
+      if (item) {
+        await axios.put(`http://localhost:8080/api/cartitems/${productId}`, { quantity: item.quantity + 1 });
+        setCart((prevCart) =>
+          prevCart.map((item) =>
+            item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+          )
+        );
       }
-    });
-    showNotification('Item added to cart');
+      showNotification('Item quantity increased');
+    } catch (error) {
+      console.error('Error incrementing item quantity:', error);
+      showNotification('Failed to increase item quantity');
+    }
   };
 
-  const incrementQuantity = (productId) => {
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
+  const decrementQuantity = async (productId) => {
+    try {
+      const item = cart.find((item) => item.id === productId);
+      if (item && item.quantity > 1) {
+        await axios.put(`http://localhost:8080/api/cartitems/${productId}`, { quantity: item.quantity - 1 });
+        setCart((prevCart) =>
+          prevCart.map((item) =>
+            item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
+          )
+        );
+      }
+      showNotification('Item quantity decreased');
+    } catch (error) {
+      console.error('Error decrementing item quantity:', error);
+      showNotification('Failed to decrease item quantity');
+    }
   };
 
-  const decrementQuantity = (productId) => {
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.id === productId && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
-    );
-  };
-
-  const removeItem = (productId) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+  const removeItem = async (productId) => {
+    try {
+      await axios.delete(`http://localhost:8080/api/cartitems/${productId}`);
+      setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+      showNotification('Item removed from cart');
+    } catch (error) {
+      console.error('Error removing item from cart:', error);
+      showNotification('Failed to remove item from cart');
+    }
   };
 
   const showNotification = (message) => {
@@ -67,106 +117,3 @@ export const CartProvider = ({ children }) => {
 };
 
 export const useCart = () => useContext(CartContext);
-
-
-// import React, { createContext, useState, useEffect, useContext } from 'react';
-// import axios from 'axios';
-
-// export const CartContext = createContext();
-// const API_URL = 'http://localhost:8080/api/cart';
-
-// // CartProvider component to wrap the app
-// export const CartProvider = ({ children }) => {
-//   const [cart, setCart] = useState([]);
-//   const [notification, setNotification] = useState({ show: false, message: '' });
-
-//   // Load cart from backend on initial render
-//   useEffect(() => {
-//     fetchCartItems();
-//   }, []);
-
-//   // Fetch cart items from the backend
-//   const fetchCartItems = async () => {
-//     try {
-//       const response = await axios.get(`${API_URL}/items`);
-//       setCart(response.data);
-//     } catch (error) {
-//       console.error('Error fetching cart items:', error);
-//     }
-//   };
-
-//   // Save cart to backend whenever it changes
-//   useEffect(() => {
-//     saveCartToBackend();
-//   }, [cart]);
-
-//   // Save cart to backend
-//   const saveCartToBackend = async () => {
-//     try {
-//       await Promise.all(cart.map(item =>
-//         axios.post(`${API_URL}/add`, item)
-//       ));
-//     } catch (error) {
-//       console.error('Error saving cart to backend:', error);
-//     }
-//   };
-
-//   // Function to add items to the cart
-//   const addToCart = async (product) => {
-//     try {
-//       await axios.post(`${API_URL}/add`, product);
-//       fetchCartItems(); // Refresh cart items after adding
-//       showNotification('Item added to cart');
-//     } catch (error) {
-//       console.error('Error adding to cart:', error);
-//     }
-//   };
-
-//   // Function to increment item quantity
-//   const incrementQuantity = async (productId) => {
-//     try {
-//       await axios.patch(`${API_URL}/increment/${productId}`);
-//       fetchCartItems(); // Refresh cart items after incrementing
-//     } catch (error) {
-//       console.error('Error incrementing quantity:', error);
-//     }
-//   };
-
-//   // Function to decrement item quantity
-//   const decrementQuantity = async (productId) => {
-//     try {
-//       await axios.patch(`${API_URL}/decrement/${productId}`);
-//       fetchCartItems(); // Refresh cart items after decrementing
-//     } catch (error) {
-//       console.error('Error decrementing quantity:', error);
-//     }
-//   };
-
-//   // Function to remove an item from the cart
-//   const removeItem = async (productId) => {
-//     try {
-//       await axios.delete(`${API_URL}/remove/${productId}`);
-//       fetchCartItems(); // Refresh cart items after removal
-//     } catch (error) {
-//       console.error('Error removing item:', error);
-//     }
-//   };
-
-//   // Function to show notification messages
-//   const showNotification = (message) => {
-//     setNotification({ show: true, message });
-//     setTimeout(() => {
-//       setNotification({ show: false, message: '' });
-//     }, 3000);
-//   };
-
-//   return (
-//     <CartContext.Provider value={{ cart, addToCart, incrementQuantity, decrementQuantity, removeItem, notification }}>
-//       {children}
-//       {notification.show && <div className="notification">{notification.message}</div>}
-//     </CartContext.Provider>
-//   );
-// };
-
-// // Custom hook to use the CartContext
-// export const useCart = () => useContext(CartContext);

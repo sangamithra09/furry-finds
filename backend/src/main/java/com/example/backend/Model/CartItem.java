@@ -1,17 +1,22 @@
 package com.example.backend.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String productName;
-    private int quantity;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    private Integer quantity;
 
     public Long getId() {
         return id;
@@ -21,29 +26,28 @@ public class CartItem {
         this.id = id;
     }
 
-    public String getProductName() {
-        return productName;
+    public User getUser() {
+        return user;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getQuantity() {
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    private double price;
+// Getters and setters
 }

@@ -1,11 +1,13 @@
 package com.example.backend.Service;
 
 import com.example.backend.Model.User;
-import com.example.backend.Reopsitory.UserRepo;
+import com.example.backend.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserServ {
@@ -32,6 +34,9 @@ public class UserServ {
     public String deleteId(long id) {
         repo.deleteById(id);
         return "deleted";
+    }
+    public Optional<User> getUserById(Long id) {
+        return repo.findById(id);
     }
     public String update(User u,long id) {
         u.setId(id);

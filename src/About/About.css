@@ -1,0 +1,13 @@
+/* YourComponent.css */
+.aimage-container {
+    text-align: center;
+    margin-top: 0px;
+  }
+  
+   .aimage-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd; /* Optional: Adds a border around the image */
+    border-radius: 8px; /* Optional: Rounds the corners of the image */
+  } 
+  

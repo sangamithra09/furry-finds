@@ -1,0 +1,101 @@
+.checkout-page {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-summary, .payment-methods {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  margin: 10px;
+}
+
+.order-summary {
+  margin-right: 20px;
+}
+
+.payment-methods {
+  margin-left: 20px;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.product-details {
+  flex-grow: 1;
+}
+
+.total {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-option {
+  margin-bottom: 10px;
+  
+  
+}
+
+.pay-now-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.pay-now-button:hover {
+  background-color: #45a049;
+}
+
+.delivery-info {
+  margin-top: 20px;
+}
+
+.delivery-info h2 {
+  margin-bottom: 10px;
+}
+
+.delivery-info form {
+  display: flex;
+  flex-direction: column;
+}
+
+.delivery-info label {
+  margin-bottom: 10px;
+}
+
+.delivery-info input {
+  padding: 8px;
+  font-size: 14px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

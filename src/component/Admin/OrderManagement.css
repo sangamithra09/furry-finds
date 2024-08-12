@@ -1,0 +1,29 @@
+.order-management {
+    padding: 20px;
+  }
+  
+  .order-management h2 {
+    margin-bottom: 20px;
+  }
+  
+  .order-management table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .order-management th,
+  .order-management td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .order-management th {
+    background: #f4f4f4;
+  }
+  
+  .order-management .btn-view,
+  .order-management .btn-update {
+    margin-right: 10px;
+  }
+  
