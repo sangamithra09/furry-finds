@@ -1,59 +1,37 @@
-import React, { useState, useEffect,Link } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from './Cart/CartContext';
 import './ProductDetailPage.css';
-import dogf1 from '../../Assets/dogf1.webp'
-import cat1 from '../../Assets/cat1.webp'
+import dogf1 from '../../Assets/dogf1.webp';
+import cat1 from '../../Assets/cat1.webp';
 
-
-const fetchProductById = (id) => {
-  const products = {
-    1: {
-      id: 1,
-      name: 'Pedigree Chicken and Vegetables Dog Dry Food',
-      image: dogf1,
-      description: 'Nutritious dog food.',
-      rating: 4.5,
-      price: 3310,
-      reviews: [
-        // { username: 'User1', rating: 5, comment: 'Great product!' },
-        // { username: 'User2', rating: 4, comment: 'Very good, but could be better.' }
-      ]
-    },
-    2: {
-      id: 1,
-      name: 'HUFT Saras Doggie Treats Fruit & Veggie Trail Mix',
-      image: "https://headsupfortails.com/cdn/shop/products/Fruitsandveggietrailmix_fd3d210e-2369-4984-b6ae-e79ecde59926.jpg?v=1672209134",
-      description: 'Dog Treats',
-      rating: 4.5,
-      price: 349,
-      reviews: [
-        // { username: 'User1', rating: 5, comment: 'Great product!' },
-        // { username: 'User2', rating: 4, comment: 'Very good, but could be better.' }
-      ]
+const fetchProductById = async(id) => {
+  try {
+    const response = await fetch(`http://localhost:8080/prod/getProd/${id}`); 
+    if (!response.ok) {
+      throw new Error('Product not found');
     }
-  };
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products[id]);
-    }, 500);
-  });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching product data:', error);
+    throw error; 
+  }
+  
 };
-
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
-      try{
-      const productData = await fetchProductById(id);
-      setProduct(productData);
-      }
-      catch (error) {
-        // Handle error
+      try {
+        const productData = await fetchProductById(id);
+        setProduct(productData);
+      } catch (error) {
         console.error('Error fetching product data:', error);
       }
     };
@@ -63,12 +41,14 @@ const ProductDetailPage = () => {
   const handleAddToCart = () => {
     if (product) {
       addToCart(product);
+      navigate('/cart'); // Navigate to the Cart page after adding the item
     }
   };
 
   const handleBuyNow = () => {
     if (product) {
       addToCart(product);
+      navigate('/cart'); // Navigate to the Cart page after adding the item
     }
   };
 
@@ -79,7 +59,7 @@ const ProductDetailPage = () => {
   return (
     <div className="product-detail">
       <div className="product-image">
-        <img src={product.image} alt={product.name} />
+        <img src={product.imageUrl} alt={product.name} />
       </div>
       <div className="product-info">
         <h1>{product.name}</h1>

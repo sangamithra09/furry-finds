@@ -27,7 +27,7 @@
   }
   
   .cartbutton {
-    background-color: #817e7ee7;
+    background-color: #4a4a4ae7;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -67,7 +67,7 @@
   transition: color 0.3s;
   padding: 0%;
   width: 2rem;
-  margin-left: 220px;
+  margin-left: 240px;
 }
 
 .wishlist-button.active {

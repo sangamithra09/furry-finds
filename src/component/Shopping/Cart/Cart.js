@@ -1,16 +1,17 @@
 import React from 'react';
 import { useCart } from './CartContext';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import CartItem from './CartItem'; 
 import './Cart.css';
 
 const Cart = () => {
-  const { cart = [], totalAmount = 0, notification = {} } = useCart();
+  const { cart, notification } = useCart();
   const navigate = useNavigate();
 
   const calculateTotalAmount = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
+
   const handleProceedToCheckout = () => {
     navigate('/checkout', { state: { cart, total: calculateTotalAmount() } });
   };
@@ -28,8 +29,8 @@ const Cart = () => {
           ))
         )}
       </div>
-      <h3>Total: ₹{(totalAmount || calculateTotalAmount()).toFixed(2)}</h3>
-      <button onClick={handleProceedToCheckout}>Procced to Checkout</button>
+      <h3>Total: ₹{calculateTotalAmount().toFixed(2)}</h3>
+      <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
     </div>
   );
 };

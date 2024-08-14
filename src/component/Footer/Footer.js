@@ -20,7 +20,7 @@ const Footer = () => {
           <div className='box link'>
             <h3>Explore</h3>
             <ul>
-              <li>About Us</li>
+              <li><Link to='/about'>About Us</Link></li>
               <li><Link to='/petpage'>Pets</Link></li>
               <li><Link to='/shop'>Products</Link></li>
             </ul>

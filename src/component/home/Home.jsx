@@ -21,7 +21,7 @@ export default function Home() {
         <h2>What Are You Interested In?</h2>
         <div className="gallery-container">
           <div className="gallery-item">
-            <Link to="/pets"><img src={buy} alt="Buy" /></Link>
+            <Link to="/petpage"><img src={buy} alt="Buy" /></Link>
             <div className="caption">Pets</div>
           </div>
           <div className="gallery-item">

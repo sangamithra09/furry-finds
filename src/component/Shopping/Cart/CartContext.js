@@ -13,9 +13,11 @@ export const CartProvider = ({ children }) => {
 
   const fetchCart = async () => {
     try {
-      const user=localStorage.getItem("userid");
-      const response = await axios.get(`http://localhost:8080/api/cartitems/${user}`); 
-      setCart(response.data);
+      const userId = localStorage.getItem('userid'); // Retrieve user ID from localStorage
+      if (userId) {
+        const response = await axios.get(`http://localhost:8080/api/cartitems/${userId}`);
+        setCart(response.data);
+      }
     } catch (error) {
       console.error('Error fetching cart items:', error);
     }
@@ -23,78 +25,95 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (product) => {
     try {
-      const existingProduct = cart.find((item) => item.id === product.id);
-      if (existingProduct) {
-        await axios.put(`http://localhost:8080/api/cartitems/${product.id}`, { quantity: existingProduct.quantity + 1 });
-        setCart((prevCart) =>
-          prevCart.map((item) =>
-            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-          )
-        );
-      } else {
-        
-        // await axios.post('http://localhost:8080/api/cartitems/add?userId=53&productId=13&quantity=1', { ...product, quantity: 1 });
-        // setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
-        const userId = 53; // Replace with dynamic user ID if needed
-      const quantity = 1;
-      await axios.post('http://localhost:8080/api/cartitems/add', null, {
-        params: {
-          userId: userId,
-          productId: product.id,
-          quantity: quantity
+      const userId = localStorage.getItem('userid'); // Retrieve user ID from localStorage
+      if (userId) {
+        const existingProduct = cart.find((item) => item.id === product.id);
+        if (existingProduct) {
+          await axios.put(`http://localhost:8080/api/cartitems/${product.id}`, {
+            userId,
+            quantity: existingProduct.quantity + 1
+          });
+          setCart((prevCart) =>
+            prevCart.map((item) =>
+              item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+            )
+          );
+        } else {
+          const quantity = 1;
+          await axios.post('http://localhost:8080/api/cartitems/add', {
+            userId,
+            productId: product.id,
+            quantity: quantity
+          });
+          setCart((prevCart) => [...prevCart, { ...product, quantity }]);
         }
-      });
-      setCart((prevCart) => [...prevCart, { ...product, quantity }]);
-    }
-        
-      showNotification('Item added to cart');
+        showNotification('Item added to cart');
+      }
     } catch (error) {
       console.error('Error adding item to cart:', error);
       showNotification('Failed to add item to cart');
     }
   };
 
-  const incrementQuantity = async (productId) => {
+  const incrementQuantity = async (product) => {
     try {
-      const item = cart.find((item) => item.id === productId);
-      if (item) {
-        await axios.put(`http://localhost:8080/api/cartitems/${productId}/increment`, { quantity: item.quantity + 1 });
-        setCart((prevCart) =>
-          prevCart.map((item) =>
-            item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
-          )
-        );
+      const userId = localStorage.getItem('userid'); // Retrieve user ID from localStorage
+      if (userId) {
+        const item = cart.find((item) => item.id === product.id);
+        if (item) {
+          const updatedQuantity = item.quantity ++;
+          await axios.put(`http://localhost:8080/api/cartitems/${product.id}/increment`, {
+            userId,
+            quantity: item.quantity ++
+          });
+          setCart((prevCart) =>
+            prevCart.map((item) =>
+              item.id === product.id ? { ...item, quantity: item.quantity ++ } : item
+            )
+          );
+        }
+        showNotification('Item quantity increased');
       }
-      showNotification('Item quantity increased');
     } catch (error) {
       console.error('Error incrementing item quantity:', error);
       showNotification('Failed to increase item quantity');
     }
   };
 
-  const decrementQuantity = async (productId) => {
+  const decrementQuantity = async (product) => {
     try {
-      const item = cart.find((item) => item.id === productId);
-      if (item && item.quantity > 1) {
-        await axios.put(`http://localhost:8080/api/cartitems/${productId}/decrement`, { quantity: item.quantity - 1 });
-        setCart((prevCart) =>
-          prevCart.map((item) =>
-            item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
-          )
-        );
+      const userId = localStorage.getItem('userid'); // Retrieve user ID from localStorage
+      if (userId) {
+        const item = cart.find((item) => item.id === product.id);
+        if (item && item.quantity > 1) {
+          await axios.put(`http://localhost:8080/api/cartitems/${item.id}/decrement`, {
+            userId,
+            quantity: item.quantity --
+          });
+          setCart((prevCart) =>
+            prevCart.map((item) =>
+              item.id === product.id ? { ...item, quantity: item.quantity --} : item
+            )
+          );
+        }
+        showNotification('Item quantity decreased');
       }
-      showNotification('Item quantity decreased');
     } catch (error) {
       console.error('Error decrementing item quantity:', error);
       showNotification('Failed to decrease item quantity');
     }
   };
 
-  const removeItem = async (productId) => {
+  const removeItem = async (product) => {
     try {
-      await axios.delete(`http://localhost:8080/api/cartitems/${productId}`);
-      setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
-      showNotification('Item removed from cart');
+      const userId = localStorage.getItem('userid'); // Retrieve user ID from localStorage
+      if (userId) {
+        await axios.delete(`http://localhost:8080/api/cartitems/${product.id}`, {
+          data: { userId }
+        });
+        setCart((prevCart) => prevCart.filter((item) => item.id !== product.id));
+        showNotification('Item removed from cart');
+      }
     } catch (error) {
       console.error('Error removing item from cart:', error);
       showNotification('Failed to remove item from cart');

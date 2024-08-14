@@ -36,7 +36,7 @@ function Navbar() {
                         <li><Link to='/wishlistpage'><IoMdHeart /></Link></li>
                     </ul>
                 </div>
-                <div style={{fontSize: "24px", padding: "0px 20px", fontWeight: "bolder"}}>{user}</div>
+                <div style={{fontSize: "24px", padding: "0px 20px", fontWeight: "bolder",color: "white"}}>{user}</div>
                 <div></div>
                 <Link to='/cart'>
                     <span className='cart-icon'>
