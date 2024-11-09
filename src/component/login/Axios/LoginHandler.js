@@ -28,28 +28,3 @@ export const loginHandler = async (email , password) => {
         return false
     }
 }
-// export const loginHandler = async (email, password) => {
-//     try {
-//         const response = await axios.post("http://localhost:8080/login", {
-//             email,
-//             password
-//         });
-
-//         if (response.status === 200) {
-//             const { userId, token, ...userData } = response.data;
-
-//             localStorage.setItem('userId', userId);
-//             localStorage.setItem('authToken', token);
-
-//             console.log("Login successful");
-//             return true;
-//         } 
-//         else {
-//             console.log("Login failed");
-//             return false;
-//         }
-//     } catch (error) {
-//         console.error("Error during login", error);
-//         return false;
-//     }
-// };

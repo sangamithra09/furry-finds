@@ -13,7 +13,7 @@ export const CartProvider = ({ children }) => {
 
   const fetchCart = async () => {
     try {
-      const userId = localStorage.getItem('userid'); // Retrieve user ID from localStorage
+      const userId = localStorage.getItem('userid'); 
       if (userId) {
         const response = await axios.get(`http://localhost:8080/api/cartitems/${userId}`);
         setCart(response.data);
@@ -25,7 +25,7 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (product) => {
     try {
-      const userId = localStorage.getItem('userid'); // Retrieve user ID from localStorage
+      const userId = localStorage.getItem('userid'); 
       if (userId) {
         const existingProduct = cart.find((item) => item.id === product.id);
         if (existingProduct) {
@@ -57,7 +57,7 @@ export const CartProvider = ({ children }) => {
 
   const incrementQuantity = async (product) => {
     try {
-      const userId = localStorage.getItem('userid'); // Retrieve user ID from localStorage
+      const userId = localStorage.getItem('userid'); 
       if (userId) {
         const item = cart.find((item) => item.id === product.id);
         if (item) {
@@ -82,7 +82,7 @@ export const CartProvider = ({ children }) => {
 
   const decrementQuantity = async (product) => {
     try {
-      const userId = localStorage.getItem('userid'); // Retrieve user ID from localStorage
+      const userId = localStorage.getItem('userid'); 
       if (userId) {
         const item = cart.find((item) => item.id === product.id);
         if (item && item.quantity > 1) {
@@ -106,7 +106,7 @@ export const CartProvider = ({ children }) => {
 
   const removeItem = async (product) => {
     try {
-      const userId = localStorage.getItem('userid'); // Retrieve user ID from localStorage
+      const userId = localStorage.getItem('userid'); 
       if (userId) {
         await axios.delete(`http://localhost:8080/api/cartitems/${product.id}`, {
           data: { userId }

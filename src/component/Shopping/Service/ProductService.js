@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/prod/getProd'; // Your Spring Boot API URL
+const API_URL = 'http://localhost:8080/prod/getProd'; 
 
 export const getProducts = async () => {
   try {

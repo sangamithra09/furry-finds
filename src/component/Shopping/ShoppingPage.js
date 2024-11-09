@@ -1,7 +1,6 @@
 import React, { useState ,useEffect} from 'react';
 import FilterOptions from './FilterOptions';
 import ShoppingCard from './ShoppingCard';
-import productsData from './ProductsData';
 import './ShoppingPage.css'
 import {getProducts} from './Service/ProductService'
 import { useCart } from './Cart/CartContext';
