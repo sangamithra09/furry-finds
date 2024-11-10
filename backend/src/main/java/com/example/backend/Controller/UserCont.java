@@ -13,6 +13,11 @@ import java.util.Optional;
 public class UserCont {
     @Autowired
     private UserServ s;
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return s.getAllUsers();
+    }
+
 
     @PostMapping("/register")
     public User post(@RequestBody User u){

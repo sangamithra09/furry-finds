@@ -2,7 +2,7 @@ import React from 'react';
 import { useCart } from './CartContext';
 
 const CartItem = ({ item }) => {
-  const { incrementQuantity, decrementQuantity, removeItem } = useCart();
+  const { incrementQuantity, decrementQuantity, removeFromCart } = useCart();
 
   return (
     <div className="cart-item">
@@ -14,7 +14,7 @@ const CartItem = ({ item }) => {
         <span>{item.quantity}</span>
         <button onClick={() => incrementQuantity(item.id)}>+</button>
       </div>
-      <button onClick={() => removeItem(item.id)} className="remove-item">✖</button>
+      <button onClick={() => removeFromCart(item.id)} className="remove-item">✖</button>
     </div>
   );
 };

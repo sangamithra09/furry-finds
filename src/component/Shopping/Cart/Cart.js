@@ -7,6 +7,9 @@ import './Cart.css';
 const Cart = () => {
   const { cart, notification } = useCart();
   const navigate = useNavigate();
+  if (!Array.isArray(cart)) {
+    return <p>Invalid cart data</p>;  // Handle the case where cart is not an array
+}
 
   const calculateTotalAmount = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);

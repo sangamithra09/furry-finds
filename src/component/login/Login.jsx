@@ -5,10 +5,11 @@ import passwordd from '../../Assets/passwordd.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginHandler } from './Axios/LoginHandler';
 import log from '../../Assets/log.jpg';
-
+import { useCart } from '../Shopping/Cart/CartContext';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { setCart, fetchCartFromBackend } = useCart();
     const [error, setError] = useState('');
     const Navigate = useNavigate();
 
@@ -21,7 +22,18 @@ const Login = () => {
         try {
             const loginSuccess = await loginHandler(email, password);
             if (loginSuccess) {
-                Navigate('/');
+                const userId = localStorage.getItem('userid');
+        if (userId){
+                await fetchCartFromBackend(userId);
+            }
+            const isAdmin = localStorage.getItem('isAdmin');
+                if (isAdmin==='true') {
+                    // If admin, navigate to Admin Dashboard
+                    Navigate('/admindashboard');
+                } else {
+                    // Regular user login, navigate to homepage or user dashboard
+                    Navigate('/');
+                }
             } 
             else {
                 setError('Your email or password is invalid.');

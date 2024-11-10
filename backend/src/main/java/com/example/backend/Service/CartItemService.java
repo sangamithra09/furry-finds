@@ -9,6 +9,7 @@ import com.example.backend.Repository.ProductRepository;
 import com.example.backend.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class CartItemService {
     @Autowired
     private ProductRepository productRepository;
 
-    public CartItem addToCart(Long userId, Long productId, Integer quantity) {
+    public CartItem addToCart(@RequestParam Long userId,@RequestParam Long productId,@RequestParam Integer quantity) {
         Optional<User> userOptional = userRepository.findById(userId);
         Optional<Product> productOptional = productRepository.findById(productId);
 

@@ -1,0 +1,65 @@
+/* ProductManagement.css */
+
+.product-management {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-management h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .products-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+  }
+  
+  .products-table th,
+  .products-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .products-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .products-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .products-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .products-table td button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .products-table td button:first-child {
+    background-color: #4caf50;
+    margin-right: 8px;
+  }
+  
+  .products-table td button:last-child {
+    background-color: #f44336;
+  }
+  
+  .products-table td button:hover {
+    opacity: 0.8;
+  }
+  

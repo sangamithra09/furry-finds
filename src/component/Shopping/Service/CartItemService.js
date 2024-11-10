@@ -30,9 +30,12 @@ export const updateCartItemQuantity = async (id, quantity) => {
   }
 };
 
-export const addCartItem = async (cartItem) => {
+export const addCartItem = async (userId, productId, quantity) => {
   try {
-    const response = await axios.post(API_URL, cartItem);
+    // Ensure userId, productId, and quantity are passed to the URL as query parameters
+    const response = await axios.post(
+      `${API_URL}/add?userId=${userId}&productId=${productId}&quantity=${quantity}`
+    );
     return response.data;
   } catch (error) {
     console.error('Error adding cart item:', error);

@@ -30,6 +30,17 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div className="sell-card-container">
+        <div className="sell-card">
+          <h2>Do you want to sell your pet?</h2>
+          <p>Only vaccinated pets are accepted.</p>
+          <button className="sell-button">
+            <Link to="/sell-pet-form" style={{ textDecoration: 'none', color: 'white' }}>
+              Sell Your Pet
+            </Link>
+          </button>
+        </div>
+      </div>
       <div className='home3'>
         <div className="card">
           <div className="card-content">

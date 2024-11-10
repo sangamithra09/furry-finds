@@ -1,5 +1,6 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios'; // For API requests
 import './CheckoutPage.css';
 
 const CheckoutPage = () => {
@@ -15,13 +16,16 @@ const CheckoutPage = () => {
     upiId: '',
   });
 
+  const navigate = useNavigate();
+
+  // Handle payment method change
   const handlePaymentMethodChange = (method) => {
     setPaymentMethod(method);
-    // Clear details when changing payment methods
     if (method !== 'creditCard') setCardDetails({ cardNumber: '', expiryDate: '', cvv: '' });
     if (method !== 'upi') setUpiDetails({ upiId: '' });
   };
 
+  // Handle card input changes
   const handleCardChange = (e) => {
     const { name, value } = e.target;
     setCardDetails(prevDetails => ({
@@ -30,6 +34,7 @@ const CheckoutPage = () => {
     }));
   };
 
+  // Handle UPI input changes
   const handleUpiChange = (e) => {
     const { name, value } = e.target;
     setUpiDetails(prevDetails => ({
@@ -38,9 +43,53 @@ const CheckoutPage = () => {
     }));
   };
 
-  const handleCheckout = () => {
-    alert(`Payment method: ${paymentMethod}\nOrder Total: ₹${total}\nCard Details: ${JSON.stringify(cardDetails)}\nUPI Details: ${JSON.stringify(upiDetails)}`);
-  
+  // Create order and handle payment
+  const handleCheckout = async () => {
+    try {
+      // Create the order with the cart, total, and payment method
+      const userId = localStorage.getItem('userid');  // Assuming user is logged in and their ID is stored
+      const orderResponse = await axios.post('http://localhost:8080/api/orders/create', {
+        userId,
+        totalAmount: total,
+        items: cart, // Ensure cart contains item details
+      });
+
+      const orderId = orderResponse.data.id; // Get the order ID from the response
+
+      // Handle payment based on selected method
+      if (paymentMethod === 'creditCard') {
+        // Handle card payment (mock payment for now)
+        const paymentResponse = await axios.post('http://localhost:8080/api/payment/creditcard', {
+          orderId,
+          cardDetails,
+        });
+
+        if (paymentResponse.data.success) {
+          // Redirect to order confirmation page after payment success
+          navigate(`/order-confirmation`, { state: { orderId } });
+        } else {
+          alert('Payment failed, please try again');
+        }
+      } else if (paymentMethod === 'upi') {
+        // Handle UPI payment (mock payment for now)
+        const paymentResponse = await axios.post('http://localhost:8080/api/payment/upi', {
+          orderId,
+          upiDetails,
+        });
+
+        if (paymentResponse.data.success) {
+          // Redirect to order confirmation page after payment success
+          navigate(`/order-confirmation`, { state: { orderId } });
+        } else {
+          alert('Payment failed, please try again');
+        }
+      } else {
+        alert('Please select a payment method');
+      }
+    } catch (error) {
+      console.error('Error during checkout:', error);
+      alert('Something went wrong during checkout');
+    }
   };
 
   return (

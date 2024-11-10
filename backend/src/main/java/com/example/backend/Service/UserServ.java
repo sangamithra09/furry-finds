@@ -14,7 +14,10 @@ import java.util.Optional;
 public class UserServ {
     @Autowired
     private UserRepo repo;
-
+    public List<User> getAllUsers()
+    {
+        return repo.findAll();
+    }
     public User postData(User u) {
         return repo.save(u);
     }

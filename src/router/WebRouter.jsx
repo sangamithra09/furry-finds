@@ -14,12 +14,14 @@ import ProductDetailPage from '../component/Shopping/ProductDetailPage';
 import AdminDashboard from '../component/Admin/AdminDashboard';
 import CheckoutPage from '../component/Shopping/CheckoutPage';
 import About from '../About/About';
+import SellPetForm from '../component/home/SellPetForm';
 const WebRouter = () => {
   return (
     <BrowserRouter>
     <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/admindashboard" element={<AdminDashboard/>}></Route>
         <Route path="*" element={<>
       <Navbar />
       <Routes>
@@ -29,9 +31,10 @@ const WebRouter = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlistpage" element={<WishlistPage/>}/>
         <Route path="/product/:id" element={<ProductDetailPage/>}></Route>
-        <Route path="/admindashboard" element={<AdminDashboard/>}></Route>
+       
         <Route path="/checkout" element={<CheckoutPage/>}></Route>
         <Route path="/about" element={<About/>}></Route>
+        <Route path="/sell-pet-form" element={<SellPetForm/>}></Route>
       </Routes>
       <Footer/>
       </>}

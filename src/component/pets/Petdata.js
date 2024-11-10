@@ -9,6 +9,7 @@ import dogshi1 from '../../Assets/dogshi1.jpg'
 import rabbit1 from '../../Assets/rabbit1.jpg'
 import doglab2 from '../../Assets/doglab2.jpg'
 import birdl1 from '../../Assets/birdl1.jpg'
+import blacklab from '../../Assets/blacklab.jpg'
 
 
 
@@ -146,7 +147,7 @@ const pets = [
   },
   {
     id: 12,
-    image: doglab2,
+    image: blacklab,
     age: '4 months',
     price: 8000,
     pet: 'Dog',

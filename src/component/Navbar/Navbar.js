@@ -5,6 +5,7 @@ import logo3 from "../../Assets/logo3.png";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoMdHeart } from "react-icons/io";
 import { useCart } from '../Shopping/Cart/CartContext';
+import Logout from '../login/Logout';
 
 function Navbar() {
     const user = localStorage.getItem('username') ?? "User";
@@ -44,6 +45,7 @@ function Navbar() {
                     </span>
                 </Link>
                 <span className='cart-count'>{cart.length}</span>
+                <Logout/>
             </div>
         </div>
     );

@@ -11,7 +11,7 @@ const UserManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/users'); 
+      const response = await axios.get('http://localhost:8080/users'); 
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -24,13 +24,29 @@ const UserManagement = () => {
       <div className="user-list">
         <h3>Users</h3>
         {users.length > 0 ? (
-          <ul>
-            {users.map((user) => (
-              <li key={user.id}>
-                {user.name} ({user.email})
-              </li>
-            ))}
-          </ul>
+          <table className="user-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <button className="action-btn">Edit</button>
+                    <button className="action-btn">Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         ) : (
           <p>No users found</p>
         )}
